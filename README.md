@@ -4,7 +4,9 @@ Minimal, mobile-first, offline-first arrival checklist (Anmeldung, insurance, Ta
 
 ## Run locally
 
-    python3 -m http.server 8080   # or any static server
+    python3 -m http.server 8080 -d .
+
+(any static server works; do not include a `#` comment on the shell command line)
 
 ## Build/deploy
 GitHub Pages via `.github/workflows/pages.yml` (Source: GitHub Pages → source "GitHub Actions").
