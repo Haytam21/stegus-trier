@@ -16,6 +16,12 @@
       <select id="lang">
         <option value="en">English</option>
         <option value="de">Deutsch</option>
+        <option value="ar">العربية</option>
+        <option value="hi">हिन्दी</option>
+        <option value="vi">Tiếng Việt</option>
+        <option value="es">Español</option>
+        <option value="pt">Português</option>
+        <option value="zh">中文</option>
       </select>
     </label>
   </header>
@@ -51,8 +57,10 @@
           const title = (b.title && typeof b.title === 'object')
             ? (b.title[lang] || b.title.en)
             : b.title;
-          const steps = b.steps.map(s => `<li>${lang === 'de' && s.text_de ? s.text_de : (s.text_en || '')}</li>`).join('');
-          const disclaimer = lang === 'de' ? (b.disclaimer_de || b.disclaimer_en) : b.disclaimer_en;
+          const textField = `text_${lang}`;
+          const steps = b.steps.map(s => `<li>${s[textField] || s.text_en || ''}</li>`).join('');
+          const disclaimerField = `disclaimer_${lang}`;
+          const disclaimer = b[disclaimerField] || b.disclaimer_en;
           const isDone = progress[b.id] === 'done';
 
           card.innerHTML = `

@@ -6,7 +6,12 @@
   "reviewer": "steward TBD (AStA/IO)",
   "locale_set": [
     "en",
-    "de"
+    "de",
+    "hi",
+    "vi",
+    "es",
+    "pt",
+    "zh"
   ],
   "fallback_to_national": true,
   "blocks": [
@@ -28,19 +33,34 @@
           "order": 1,
           "text_en": "Book an appointment at your local Bürgeramt in Trier (or nearest one).",
           "text_de": "Termin beim Bürgeramt in Trier vereinbaren.",
-          "text_ar": "اختَر موعداً في Bürgeramt في Trier."
+          "text_ar": "اختَر موعداً في Bürgeramt في Trier.",
+          "text_hi": "Book an appointment at your local Bürgeramt in Trier (or nearest one).",
+          "text_vi": "Book an appointment at your local Bürgeramt in Trier (or nearest one).",
+          "text_es": "Book an appointment at your local Bürgeramt in Trier (or nearest one).",
+          "text_pt": "Book an appointment at your local Bürgeramt in Trier (or nearest one).",
+          "text_zh": "Book an appointment at your local Bürgeramt in Trier (or nearest one)."
         },
         {
           "order": 2,
           "text_en": "Bring passport, rental contract, and your landlord confirmation (Wohnungsgeberbestätigung).",
           "text_de": "Pass, Mietvertrag und Wohnungsgeberbestätigung mitbringen.",
-          "text_ar": "أحضر passport، Mietvertrag، Wohnungsgeberbestätigung."
+          "text_ar": "أحضر passport، Mietvertrag، Wohnungsgeberbestätigung.",
+          "text_hi": "Bring passport, rental contract, and your landlord confirmation (Wohnungsgeberbestätigung).",
+          "text_vi": "Bring passport, rental contract, and your landlord confirmation (Wohnungsgeberbestätigung).",
+          "text_es": "Bring passport, rental contract, and your landlord confirmation (Wohnungsgeberbestätigung).",
+          "text_pt": "Bring passport, rental contract, and your landlord confirmation (Wohnungsgeberbestätigung).",
+          "text_zh": "Bring passport, rental contract, and your landlord confirmation (Wohnungsgeberbestätigung)."
         },
         {
           "order": 3,
           "text_en": "Submit the form — you will receive the Anmeldebestätigung same-day in most cases.",
           "text_de": "Formular abgeben — Bescheinigung oft am selben Tag.",
-          "text_ar": "قد تصل الشهادة في نفس اليوم."
+          "text_ar": "قد تصل الشهادة في نفس اليوم.",
+          "text_hi": "Submit the form — you will receive the Anmeldebestätigung same-day in most cases.",
+          "text_vi": "Submit the form — you will receive the Anmeldebestätigung same-day in most cases.",
+          "text_es": "Submit the form — you will receive the Anmeldebestätigung same-day in most cases.",
+          "text_pt": "Submit the form — you will receive the Anmeldebestätigung same-day in most cases.",
+          "text_zh": "Submit the form — you will receive the Anmeldebestätigung same-day in most cases."
         }
       ],
       "disclaimer_en": "Guidance only. Confirm exact requirements with the Bürgeramt.",
@@ -48,7 +68,12 @@
       "sources": [
         "https://www.trier.de/verwaltung/buergeramt (example)"
       ],
-      "disclaimer_ar": "إرشادات فقط"
+      "disclaimer_ar": "إرشادات فقط",
+      "disclaimer_hi": "Guidance only. Confirm exact requirements with the Bürgeramt.",
+      "disclaimer_vi": "Guidance only. Confirm exact requirements with the Bürgeramt.",
+      "disclaimer_es": "Guidance only. Confirm exact requirements with the Bürgeramt.",
+      "disclaimer_pt": "Guidance only. Confirm exact requirements with the Bürgeramt.",
+      "disclaimer_zh": "Guidance only. Confirm exact requirements with the Bürgeramt."
     },
     {
       "id": "insurance",
@@ -68,20 +93,35 @@
           "order": 1,
           "text_en": "Enroll in a public or private statutory health insurer (Krankenkasse) if not automatic.",
           "text_de": "In gesetzliche oder private Krankenversicherung eintreten, falls nicht automatisch.",
-          "text_ar": "سجِّل في Krankenkasse إن لم يكن آلياً."
+          "text_ar": "سجِّل في Krankenkasse إن لم يكن آلياً.",
+          "text_hi": "Enroll in a public or private statutory health insurer (Krankenkasse) if not automatic.",
+          "text_vi": "Enroll in a public or private statutory health insurer (Krankenkasse) if not automatic.",
+          "text_es": "Enroll in a public or private statutory health insurer (Krankenkasse) if not automatic.",
+          "text_pt": "Enroll in a public or private statutory health insurer (Krankenkasse) if not automatic.",
+          "text_zh": "Enroll in a public or private statutory health insurer (Krankenkasse) if not automatic."
         },
         {
           "order": 2,
           "text_en": "You need active coverage to finalize enrollment at university.",
           "text_de": "Für die Immatrikulation ist Nachweis der Krankenversicherung erforderlich.",
-          "text_ar": "يلزم إثبات التأ coverage لاستكمال التسجيل."
+          "text_ar": "يلزم إثبات التأ coverage لاستكمال التسجيل.",
+          "text_hi": "You need active coverage to finalize enrollment at university.",
+          "text_vi": "You need active coverage to finalize enrollment at university.",
+          "text_es": "You need active coverage to finalize enrollment at university.",
+          "text_pt": "You need active coverage to finalize enrollment at university.",
+          "text_zh": "You need active coverage to finalize enrollment at university."
         }
       ],
       "disclaimer_en": "If your situation is unclear, ask the International Office before buying.",
       "sources": [
         "https://www.dak.de (example provider)"
       ],
-      "disclaimer_ar": "إرشادات فقط"
+      "disclaimer_ar": "إرشادات فقط",
+      "disclaimer_hi": "If your situation is unclear, ask the International Office before buying.",
+      "disclaimer_vi": "If your situation is unclear, ask the International Office before buying.",
+      "disclaimer_es": "If your situation is unclear, ask the International Office before buying.",
+      "disclaimer_pt": "If your situation is unclear, ask the International Office before buying.",
+      "disclaimer_zh": "If your situation is unclear, ask the International Office before buying."
     },
     {
       "id": "taxid",
@@ -101,14 +141,24 @@
           "order": 1,
           "text_en": "After registering your address, the Finnish/German tax office (Finanzamt) mails your Steuer-ID (automatic, do not re-apply).",
           "text_de": "Nach der Anmeldung versendet das Finanzamt die Steuer-ID automatisch; keine erneute Beantragung nötig.",
-          "text_ar": "T автоматически посылает Steuer-ID بعد Anmeldung."
+          "text_ar": "T автоматически посылает Steuer-ID بعد Anmeldung.",
+          "text_hi": "After registering your address, the Finnish/German tax office (Finanzamt) mails your Steuer-ID (automatic, do not re-apply).",
+          "text_vi": "After registering your address, the Finnish/German tax office (Finanzamt) mails your Steuer-ID (automatic, do not re-apply).",
+          "text_es": "After registering your address, the Finnish/German tax office (Finanzamt) mails your Steuer-ID (automatic, do not re-apply).",
+          "text_pt": "After registering your address, the Finnish/German tax office (Finanzamt) mails your Steuer-ID (automatic, do not re-apply).",
+          "text_zh": "After registering your address, the Finnish/German tax office (Finanzamt) mails your Steuer-ID (automatic, do not re-apply)."
         }
       ],
       "disclaimer_en": "If it does not arrive within 3 weeks, contact the local Finanzamt Trier.",
       "sources": [
         "https://www.bzst.de (Steuer-ID checker)"
       ],
-      "disclaimer_ar": "إرشادات فقط"
+      "disclaimer_ar": "إرشادات فقط",
+      "disclaimer_hi": "If it does not arrive within 3 weeks, contact the local Finanzamt Trier.",
+      "disclaimer_vi": "If it does not arrive within 3 weeks, contact the local Finanzamt Trier.",
+      "disclaimer_es": "If it does not arrive within 3 weeks, contact the local Finanzamt Trier.",
+      "disclaimer_pt": "If it does not arrive within 3 weeks, contact the local Finanzamt Trier.",
+      "disclaimer_zh": "If it does not arrive within 3 weeks, contact the local Finanzamt Trier."
     },
     {
       "id": "sunday-emergency",
@@ -128,20 +178,35 @@
           "order": 1,
           "text_en": "Find an Apotheke (pharmacy) on duty: https://www.apotheken-notdienst.de",
           "text_de": "Notapotheke finden: https://www.apotheken-notdienst.de",
-          "text_ar": "أوجد صيدلية值班: https://www.apotheken-notdienst.de."
+          "text_ar": "أوجد صيدلية值班: https://www.apotheken-notdienst.de.",
+          "text_hi": "Find an Apotheke (pharmacy) on duty: https://www.apotheken-notdienst.de",
+          "text_vi": "Find an Apotheke (pharmacy) on duty: https://www.apotheken-notdienst.de",
+          "text_es": "Find an Apotheke (pharmacy) on duty: https://www.apotheken-notdienst.de",
+          "text_pt": "Find an Apotheke (pharmacy) on duty: https://www.apotheken-notdienst.de",
+          "text_zh": "Find an Apotheke (pharmacy) on duty: https://www.apotheken-notdienst.de"
         },
         {
           "order": 2,
           "text_en": "Supermarkets are closed Sun; use a Tankstelle or pre-plan.",
           "text_de": "Supermärkte Sonntags geschlossen; Tankstellen nutzen oder vorausplanen.",
-          "text_ar": "Supermärkte مغلقة Sunday; Tankstelle أو anticipato."
+          "text_ar": "Supermärkte مغلقة Sunday; Tankstelle أو anticipato.",
+          "text_hi": "Supermarkets are closed Sun; use a Tankstelle or pre-plan.",
+          "text_vi": "Supermarkets are closed Sun; use a Tankstelle or pre-plan.",
+          "text_es": "Supermarkets are closed Sun; use a Tankstelle or pre-plan.",
+          "text_pt": "Supermarkets are closed Sun; use a Tankstelle or pre-plan.",
+          "text_zh": "Supermarkets are closed Sun; use a Tankstelle or pre-plan."
         }
       ],
       "disclaimer_en": "Services vary by date.",
       "sources": [
         "https://www.apotheken-notdienst.de"
       ],
-      "disclaimer_ar": "إرشادات hanya"
+      "disclaimer_ar": "إرشادات hanya",
+      "disclaimer_hi": "Services vary by date.",
+      "disclaimer_vi": "Services vary by date.",
+      "disclaimer_es": "Services vary by date.",
+      "disclaimer_pt": "Services vary by date.",
+      "disclaimer_zh": "Services vary by date."
     }
   ]
 }
