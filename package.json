@@ -1,0 +1,14 @@
+{
+  "name": "stegus-trier",
+  "version": "0.0.2",
+  "description": "Trier arrival hub — international student checklist PWA",
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Haytam21/stegus-trier.git"
+  },
+  "type": "module",
+  "license": "MIT"
+}
