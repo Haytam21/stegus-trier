@@ -6,3 +6,4 @@ header h1 { margin: 0 0 .5rem; }
 #app { display: grid; gap: .75rem; }
 .card { background: var(--card); padding: 1rem; border-radius: 8px; }
 li { margin: .35rem 0; }
+[dir="rtl"] { text-align: right; }
