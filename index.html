@@ -17,17 +17,25 @@
         <option value="en">English</option>
         <option value="de">Deutsch</option>
         <option value="ar">العربية</option>
-        <option value="hi">हिन्दी</option>
-        <option value="vi">Tiếng Việt</option>
-        <option value="es">Español</option>
-        <option value="pt">Português</option>
-        <option value="zh">中文</option>
       </select>
+      <span class="coming-soon" style="font-size:0.8rem;color:#666;margin-left:.5rem">More languages coming soon</span>
     </label>
   </header>
   <main id="app"></main>
   <script>
     const key = (packId, code) => `stegus:${packId}:${code}`;
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+function setDirAndLang(lang) {
+  const html = document.documentElement;
+  html.lang = lang;
+  html.dir = lang === 'ar' ? 'rtl' : 'ltr';
+}
     function loadProgress(packId, itemCodes) {
       const out = {};
       for (const code of itemCodes) {
@@ -58,18 +66,40 @@
             ? (b.title[lang] || b.title.en)
             : b.title;
           const textField = `text_${lang}`;
-          const steps = b.steps.map(s => `<li>${s[textField] || s.text_en || ''}</li>`).join('');
           const disclaimerField = `disclaimer_${lang}`;
           const disclaimer = b[disclaimerField] || b.disclaimer_en;
           const isDone = progress[b.id] === 'done';
 
-          card.innerHTML = `
-            <h2>${title} ${isDone ? '✓' : ''}</h2>
-            <ul>${steps}</ul>
-            ${disclaimer ? `<p class="disclaimer">${disclaimer}</p>` : ''}
-            <button data-code="${b.id}" data-state="${isDone ? 'done' : 'not_done'}">
-              ${isDone ? 'Mark undone' : 'Mark done'}
-            </button>`;
+          // Safe rendering (no innerHTML) — fixes W1
+          const card = document.createElement('article');
+          card.className = 'card';
+
+          const h2 = document.createElement('h2');
+          h2.textContent = title + (isDone ? ' ✓' : '');
+          card.appendChild(h2);
+
+          const ul = document.createElement('ul');
+          b.steps.forEach(s => {
+            const li = document.createElement('li');
+            li.textContent = s[textField] || s.text_en || '';
+            ul.appendChild(li);
+          });
+          card.appendChild(ul);
+
+          if (disclaimer) {
+            const p = document.createElement('p');
+            p.className = 'disclaimer';
+            p.textContent = disclaimer;
+            card.appendChild(p);
+          }
+
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.dataset.code = b.id;
+          btn.dataset.state = isDone ? 'done' : 'not_done';
+          btn.textContent = isDone ? 'Mark undone' : 'Mark done';
+          card.appendChild(btn);
+
           root.appendChild(card);
         });
 
@@ -82,13 +112,20 @@
           });
         });
       } catch (err) {
-        root.innerHTML = `<div class="disclaimer" style="color:#b00020">⚠️ Failed to load checklist: ${err.message}. Try hard refresh (Cmd+Shift+R).</div>`;
-        console.error(err);
+        root.innerHTML = `
+          <div class="disclaimer" style="color:#b00020">⚠️ Failed to load checklist: ${escapeHtml(err.message)}.</div>
+          <button type="button" id="retry-btn">Retry</button>
+        `;
+        document.getElementById('retry-btn').addEventListener('click', () => loadPack(lang));
       }
     }
 
     const sel = document.querySelector('#lang');
-    sel.addEventListener('change', () => loadPack(sel.value));
+    sel.addEventListener('change', () => {
+      setDirAndLang(sel.value);
+      loadPack(sel.value);
+    });
+    setDirAndLang('en');
     loadPack('en');
 
     // Register service worker for offline-first PWA
