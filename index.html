@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b3c5d">
   <title>Trier arrival hub — Stegus</title>
-  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="manifest" href="./manifest.webmanifest">
   <link rel="stylesheet" href="./styles/main.css">
 </head>
 <body>
@@ -38,7 +38,7 @@
       const root = document.getElementById('app');
       root.innerHTML = '';
       try {
-        const res = await fetch('/content/packs/trier.json');
+        const res = await fetch('./content/packs/trier.json');
         if (!res.ok) throw new Error('Pack not found: ' + res.status);
         const pack = await res.json();
         const codes = pack.blocks.map(b => b.id);
