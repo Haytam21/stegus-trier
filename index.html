@@ -90,6 +90,13 @@
     const sel = document.querySelector('#lang');
     sel.addEventListener('change', () => loadPack(sel.value));
     loadPack('en');
+
+    // Register service worker for offline-first PWA
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js').catch((err) => {
+        // Silent fail — SW is optional enhancement
+      });
+    }
   </script>
 </body>
 </html>
