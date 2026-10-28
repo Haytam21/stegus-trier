@@ -1,0 +1,388 @@
+{
+  "pack_id": "national-2026q4-v0",
+  "city": "Germany (national baseline)",
+  "version": "0.1.0",
+  "reviewed_on": "2026-10-28",
+  "reviewer": "Stegus team — compiled from official sources",
+  "locale_set": ["en", "de", "ar"],
+  "fallback_to_national": true,
+  "national_baseline": [
+    {
+      "id": "scam-warnings",
+      "title": {
+        "en": "Scam warnings",
+        "de": "Warnung vor Betrug",
+        "ar": "تحذير من الاحتيال"
+      },
+      "intent": "reference",
+      "city_only": false,
+      "estimated_days_window": [0, 90],
+      "steps": [
+        {
+          "order": 1,
+          "text_en": "Never pay a deposit or rent before seeing the apartment in person and signing a contract.",
+          "text_de": "Zahlen Sie niemals eine Kaution oder Miete, bevor Sie die Wohnung persönlich besichtigt und einen Vertrag unterschrieben haben.",
+          "text_ar": "لا تدفع أي وديعة أو إيجار قبل رؤية الشقة بشكل شخصي وتوقيع العقد.",
+          "what_to_bring": [],
+          "german_phrase": "",
+          "deadline_days": null,
+          "depends_on": []
+        },
+        {
+          "order": 2,
+          "text_en": "Be wary of fake Anmeldung services that charge for free government appointments.",
+          "text_de": "Seien Sie vorsichtig bei gefälschten Anmeldung-Diensten, die für kostenlose staatliche Termine Geld verlangen.",
+          "text_ar": "احذر من خدمات التسجيل المزيفة التي تطلب مبلغًا ماليًا مقابل مواعيد حكومية مجانية.",
+          "what_to_bring": [],
+          "german_phrase": "",
+          "deadline_days": null,
+          "depends_on": []
+        }
+      ],
+      "disclaimer": {
+        "en": "If an offer seems too good to be true, it probably is. Verify with official sources.",
+        "de": "Wenn ein Angebot zu gut erscheint, um wahr zu sein, ist es das wahrscheinlich auch. Prüfen Sie offizielle Quellen.",
+        "ar": "إذا بدا العرض جيدًا بشكل لا يصدق، فهو على الأرجح كذلك. تحقق من المصادر الرسمية."
+      },
+      "sources": [
+        {
+          "url": "https://www.make-it-in-germany.com/en/",
+          "last_verified": "2026-10-28",
+          "status": "verified"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "residence-permit",
+      "title": {
+        "en": "Residence permit (non-EU)",
+        "de": "Aufenthaltstitel (außerhalb der EU)",
+        "ar": "إقامة (غير مواطني الاتحاد الأوروبي)"
+      },
+      "intent": "guide",
+      "city_only": false,
+      "estimated_days_window": [14, 90],
+      "steps": [
+        {
+          "order": 1,
+          "text_en": "Apply for a residence permit at the local Ausländerbehörde (Foreigners' Registration Office) after completing your Anmeldung.",
+          "text_de": "Beantragen Sie einen Aufenthaltstitel bei der örtlichen Ausländerbehörde nach Abschluss Ihrer Anmeldung.",
+          "text_ar": "قدم طلب إقامة لدى مكتب شؤون الأجانب المحلي بعد إكمال التسجيل (Anmeldung).",
+          "what_to_bring": ["Passport", "Anmeldung confirmation", "University enrollment proof", "Health insurance proof", "Biometric photos"],
+          "german_phrase": "Ich möchte einen Aufenthaltstitel beantragen.",
+          "deadline_days": 90,
+          "depends_on": ["anmeldung"]
+        }
+      ],
+      "disclaimer": {
+        "en": "Requirements vary by city and nationality. Confirm with your local Ausländerbehörde.",
+        "de": "Die Anforderungen variieren je nach Stadt und Staatsangehörigkeit. Bestätigen Sie mit Ihrer örtlichen Ausländerbehörde.",
+        "ar": "تختلف المتطلبات حسب المدينة والجنسية. تأكد من مكتب شؤون الأجانب المحلي."
+      },
+      "sources": [
+        {
+          "url": "https://www.bamf.de/",
+          "last_verified": "2026-10-28",
+          "status": "verified"
+        },
+        {
+          "url": "https://www.auswaertiges-amt.de/de/service/fragenkatalog-node/08-studentenvisum/606218",
+          "last_verified": "2026-10-28",
+          "status": "verified"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "enrollment",
+      "title": {
+        "en": "University enrollment (Immatrikulation)",
+        "de": "Hochschuleinschreibung (Immatrikulation)",
+        "ar": "التسجيل في الجامعة"
+      },
+      "intent": "guide",
+      "city_only": false,
+      "estimated_days_window": [0, 30],
+      "steps": [
+        {
+          "order": 1,
+          "text_en": "Enroll at your university before the deadline. You need health insurance proof and your admission letter.",
+          "text_de": "Schreiben Sie sich vor der Frist an Ihrer Hochschule ein. Sie benötigen einen Krankenversicherungsnachweis und Ihren Zulassungsbescheid.",
+          "text_ar": "سجل في جامعتك قبل الموعد النهائي. تحتاج إلى إثبات التأمين الصحي وخطاب القبول.",
+          "what_to_bring": ["Admission letter (Zulassungsbescheid)", "Health insurance proof", "Passport", "Passport photos"],
+          "german_phrase": "Ich möchte mich immatrikulieren.",
+          "deadline_days": 30,
+          "depends_on": ["health-insurance"]
+        }
+      ],
+      "disclaimer": {
+        "en": "Deadlines and requirements vary by university. Check your admission letter and university International Office.",
+        "de": "Fristen und Anforderungen variieren je nach Hochschule. Prüfen Sie Ihren Zulassungsbescheid und das International Office Ihrer Hochschule.",
+        "ar": "المواعيد النهائية والمتطلبات تختلف حسب الجامعة. تحقق من خطاب القبول ومكتب الشؤون الدولية بجامعتك."
+      },
+      "sources": [
+        {
+          "url": "https://www.make-it-in-germany.com/en/study-germany",
+          "last_verified": "2026-10-28",
+          "status": "verified"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "blocked-account",
+      "title": {
+        "en": "Blocked account (Sperrkonto)",
+        "de": "Sperrkonto",
+        "ar": "حساب مغلق"
+      },
+      "intent": "guide",
+      "city_only": false,
+      "estimated_days_window": [7, 30],
+      "steps": [
+        {
+          "order": 1,
+          "text_en": "Non-EU students typically need a blocked account to prove sufficient funds for a student visa. Open it before arriving in Germany.",
+          "text_de": "Studierende außerhalb der EU benötigen in der Regel ein Sperrkonto, um ausreichende Mittel für ein Studentenvisum nachzuweisen. Eröffnen Sie es vor der Einreise nach Deutschland.",
+          "text_ar": "يحتاج الطلاب غير الأوروبيين عادةً إلى حساب مغلق لإثبات الأموال الكافية للحصول على تأشيرة طالب. افتحه قبل الوصول إلى ألمانيا.",
+          "what_to_bring": ["Passport", "University admission letter", "Bank application form"],
+          "german_phrase": "Ich möchte ein Sperrkonto eröffnen.",
+          "deadline_days": null,
+          "depends_on": []
+        }
+      ],
+      "disclaimer": {
+        "en": "Amount requirements are set by the Auswärtiges Amt for visa purposes. Individual banks set their own fees.",
+        "de": "Die Betragsanforderungen werden vom Auswärtiges Amt für Visumszwecke festgelegt. Einzelne Banken legen ihre eigenen Gebühren fest.",
+        "ar": "يتم تحديد متطلبات المبلغ من قبل وزارة الخارجية الألمانية لأغراض التأشيرة. البنوك الفردية تحدد رسومها الخاصة."
+      },
+      "sources": [
+        {
+          "url": "https://www.auswaertiges-amt.de/de/sperrkonto/388600",
+          "last_verified": "2026-10-28",
+          "status": "verified"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "bank-account",
+      "title": {
+        "en": "Bank account",
+        "de": "Bankkonto",
+        "ar": "حساب بنكي"
+      },
+      "intent": "guide",
+      "city_only": false,
+      "estimated_days_window": [7, 30],
+      "steps": [
+        {
+          "order": 1,
+          "text_en": "Open a German bank account (Girokonto) for rent, insurance, and semester fee payments. Many banks offer free student accounts.",
+          "text_de": "Eröffnen Sie ein deutsches Bankkonto (Girokonto) für Miete, Versicherungen und Semesterbeiträge. Viele Banken bieten kostenlose Studentenkonten an.",
+          "text_ar": "افتح حسابًا بنكيًا ألمانيًا (Girokonto) لدفع الإيجار والتأمين ورسوم الفصل الدراسي. تقدم العديد من البنوك حسابات طلابية مجانية.",
+          "what_to_bring": ["Passport", "Anmeldung confirmation", "University enrollment proof"],
+          "german_phrase": "Ich möchte ein Girokonto eröffnen.",
+          "deadline_days": null,
+          "depends_on": ["anmeldung"]
+        }
+      ],
+      "disclaimer": {
+        "en": "Requirements vary by bank. Compare accounts before choosing.",
+        "de": "Die Anforderungen variieren je nach Bank. Vergleichen Sie Konten vor der Wahl.",
+        "ar": "تختلف المتطلبات حسب البنك. قارن الحسابات قبل الاختيار."
+      },
+      "sources": [
+        {
+          "url": "https://www.verbraucherzentrale.de/wissen/geld-versicherungen/sparen-und-anlegen/girokonto-was-sie-darueber-wissen-sollten-4990",
+          "last_verified": "2026-10-28",
+          "status": "verified"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "semester-ticket",
+      "title": {
+        "en": "Semester ticket / Deutschlandticket",
+        "de": "Semesterticket / Deutschlandticket",
+        "ar": "تذكرة الفصل الدراسي / تذكرة ألمانيا"
+      },
+      "intent": "guide",
+      "city_only": false,
+      "estimated_days_window": [0, 14],
+      "steps": [
+        {
+          "order": 1,
+          "text_en": "The Deutschlandticket costs €49/month and is valid on all regional public transport across Germany. Your university may also offer a Semesterticket included in your fees.",
+          "text_de": "Das Deutschlandticket kostet 49 € pro Monat und gilt im gesamten regionalen Nahverkehr in Deutschland. Ihre Universität bietet möglicherweise auch ein Semesterticket, das in Ihren Gebühren enthalten ist.",
+          "text_ar": "تكلفة تذكرة ألمانيا 49 يورو شهريًا وصالحة في جميع وسائل النقل الإقليمي في ألمانيا. قد توفر جامعتك أيضًا تذكرة فصل دراسي مشمولة في رسومك.",
+          "what_to_bring": ["Student ID", "University enrollment proof"],
+          "german_phrase": "Wo bekomme ich das Semesterticket?",
+          "deadline_days": null,
+          "depends_on": ["enrollment"]
+        }
+      ],
+      "disclaimer": {
+        "en": "Deutschlandticket is €49/month (national price). Semesterticket terms vary by university and state.",
+        "de": "Deutschlandticket kostet 49 € pro Monat (nationaler Preis). Semesterticket-Bedingungen variieren je nach Universität und Bundesland.",
+        "ar": "تبلغ تكلفة تذكرة ألمانيا 49 يورو شهريًا (السعر الوطني). شروط تذكرة الفصل الدراسي تختلف حسب الجامعة والولاية."
+      },
+      "sources": [
+        {
+          "url": "https://deutschlandticket.de/",
+          "last_verified": "2026-10-28",
+          "status": "verified"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "sim-card",
+      "title": {
+        "en": "SIM card / German phone number",
+        "de": "SIM-Karte / deutsche Handynummer",
+        "ar": "بطاقة SIM / رقم هاتف ألماني"
+      },
+      "intent": "guide",
+      "city_only": false,
+      "estimated_days_window": [0, 7],
+      "steps": [
+        {
+          "order": 1,
+          "text_en": "Buy a prepaid SIM card and complete ID verification (Personalausweis or passport). Activation can be done via eID, video chat, or at a post office.",
+          "text_de": "Kaufen Sie eine Prepaid-SIM-Karte und schließen Sie die Identitätsprüfung ab (Personalausweis oder Reisepass). Die Aktivierung kann per eID, Video-Chat oder in einer Postfiliale erfolgen.",
+          "text_ar": "اشترِ بطاقة SIM مدفوعة مسبقًا وأكمل التحقق من الهوية (البطاقة الشخصية أو جواز السفر). يمكن التفعيل عبر eID أو الدردشة المرئية أو في مكتب البريد.",
+          "what_to_bring": ["Passport or Personalausweis"],
+          "german_phrase": "Ich möchte eine Prepaid-SIM-Karte kaufen.",
+          "deadline_days": null,
+          "depends_on": []
+        }
+      ],
+      "disclaimer": {
+        "en": "German law requires ID verification for all SIM cards. Prepaid activation options vary by provider.",
+        "de": "Das deutsche Gesetz verlangt eine Identitätsprüfung für alle SIM-Karten. Die Aktivierungsoptionen für Prepaid variieren je nach Anbieter.",
+        "ar": "يطلب القانون الألماني التحقق من الهوية لجميع بطاقات SIM. خيارات تفعيل الدفع المسبق تختلف حسب المزود."
+      },
+      "sources": [
+        {
+          "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/veroeffentlichungen/themen/sicherheit/faqs-prepaid-regelung.pdf",
+          "last_verified": "2026-10-28",
+          "status": "verified"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "health-insurance-exemption",
+      "title": {
+        "en": "Health insurance exemption",
+        "de": "Krankenversicherungsbefreiung",
+        "ar": "إعفاء من التأمين الصحي"
+      },
+      "intent": "guide",
+      "city_only": false,
+      "estimated_days_window": [0, 30],
+      "steps": [
+        {
+          "order": 1,
+          "text_en": "If you have private health insurance from your home country, you may apply for an exemption from German statutory health insurance. Submit proof to your university.",
+          "text_de": "Wenn Sie eine private Krankenversicherung aus Ihrem Heimatland haben, können Sie eine Befreiung von der deutschen gesetzlichen Krankenversicherung beantragen. Reichen Sie den Nachweis bei Ihrer Universität ein.",
+          "text_ar": "إذا كان لديك تأمين صحي خاص من بلدك، يمكنك التقدم بطلب إعفاء من التأمين الصحي القانوني الألماني. قدم الإثبات إلى جامعتك.",
+          "what_to_bring": ["Private insurance policy", "Translation (if not in German/English)", "University exemption form"],
+          "german_phrase": "Ich beantrage eine Krankenversicherungsbefreiung.",
+          "deadline_days": null,
+          "depends_on": ["enrollment"]
+        }
+      ],
+      "depends_on": ["enrollment"],
+      "disclaimer": {
+        "en": "Exemption rules vary. Confirm with your university and health insurer before deciding.",
+        "de": "Befreiungsregeln variieren. Bestätigen Sie mit Ihrer Universität und Krankenversicherung vor der Entscheidung.",
+        "ar": "قواعد الإعفاء تختلف. تأكد من جامعتك ومزود التأمين الصحي قبل اتخاذ القرار."
+      },
+      "sources": [
+        {
+          "url": "https://gesund.bund.de/krankenversicherung-studierende",
+          "last_verified": "2026-10-28",
+          "status": "verified"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "liability-insurance",
+      "title": {
+        "en": "Liability insurance (Haftpflichtversicherung)",
+        "de": "Haftpflichtversicherung",
+        "ar": "التأمين ضد المسؤولية"
+      },
+      "intent": "guide",
+      "city_only": false,
+      "estimated_days_window": [0, 30],
+      "steps": [
+        {
+          "order": 1,
+          "text_en": "Private liability insurance is not legally mandatory but strongly recommended. It covers damage you accidentally cause to others or their property.",
+          "text_de": "Eine private Haftpflichtversicherung ist nicht gesetzlich vorgeschrieben, aber dringend empfohlen. Sie deckt Schäden ab, die Sie versehentlich anderen Personen oder deren Eigentum zufügen.",
+          "text_ar": "التأمين ضد المسؤولية ليس إلزاميًا قانونيًا ولكنه موصى به بشدة. يغطي الأضرار التي تسببها عن طريق الخطأ للآخرين أو لممتلكاتهم.",
+          "what_to_bring": [],
+          "german_phrase": "Ich möchte eine Haftpflichtversicherung abschließen.",
+          "deadline_days": null,
+          "depends_on": []
+        }
+      ],
+      "disclaimer": {
+        "en": "Often covered under parents' policy until a certain age. Check before buying separate coverage.",
+        "de": "Oft über elterliche Police bis zu einem bestimmten Alter abgedeckt. Prüfen Sie vor dem Kauf separater Versicherungsschutz.",
+        "ar": "غالبًا ما يتم التغطية بموجب بوليصة الوالدين حتى عمر معين. تحقق قبل شراء تغطية منفصلة."
+      },
+      "sources": [
+        {
+          "url": "https://www.verbraucherzentrale.de/wissen/geld-versicherungen/weitere-versicherungen/versicherungen-fuer-studierende-die-unerlaesslichen-policen-10510",
+          "last_verified": "2026-10-28",
+          "status": "verified"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "rundfunkbeitrag",
+      "title": {
+        "en": "Rundfunkbeitrag (TV license)",
+        "de": "Rundfunkbeitrag",
+        "ar": "رسوم البث"
+      },
+      "intent": "guide",
+      "city_only": false,
+      "estimated_days_window": [14, 30],
+      "steps": [
+        {
+          "order": 1,
+          "text_en": "Register for the Rundfunkbeitrag (€18.36/month) after your Anmeldung. Students receiving BAföG may apply for an exemption.",
+          "text_de": "Melden Sie sich nach Ihrer Anmeldung für den Rundfunkbeitrag (18,36 €/Monat) an. Studierende, die BAföG erhalten, können eine Befreiung beantragen.",
+          "text_ar": "سجل في رسم البث (18.36 يورو/شهر) بعد تسجيلك (Anmeldung). الطلاب الذين يحصلون على BAföG يمكنهم التقدم بطلب إعفاء.",
+          "what_to_bring": ["Anmeldung confirmation", "BAföG proof (if applying for exemption)"],
+          "german_phrase": "Ich muss mich für den Rundfunkbeitrag anmelden.",
+          "deadline_days": null,
+          "depends_on": ["anmeldung"]
+        }
+      ],
+      "disclaimer": {
+        "en": "€18.36/month (as of 2026). Exemption for BAföG recipients. Hardship reductions possible.",
+        "de": "18,36 €/Monat (Stand 2026). Befreiung für BAföG-Empfänger. Härtefallregelungen möglich.",
+        "ar": "18.36 يورو/شهر (اعتبارًا من 2026). إعفاء لمستلمي BAföG. تخفيضات الصعوبة ممكنة."
+      },
+      "sources": [
+        {
+          "url": "https://www.rundfunkbeitrag.de/buergerinnen-und-buerger/informationen/informationen-fuer-studierende",
+          "last_verified": "2026-10-28",
+          "status": "verified"
+        }
+      ],
+      "status": "verified"
+    }
+  ],
+  "city_overlay": []
+}

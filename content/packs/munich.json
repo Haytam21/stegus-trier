@@ -1,0 +1,10 @@
+{
+  "pack_id": "munich-2026q4-v0",
+  "city": "Munich",
+  "version": "0.0.1",
+  "reviewed_on": "2026-10-28",
+  "reviewer": "steward TBD",
+  "locale_set": ["en", "de", "ar"],
+  "fallback_to_national": true,
+  "city_overlay": []
+}

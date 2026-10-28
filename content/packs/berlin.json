@@ -1,0 +1,67 @@
+{
+  "pack_id": "berlin-2026q4-v0",
+  "city": "Berlin",
+  "version": "0.0.1",
+  "reviewed_on": "2026-10-28",
+  "reviewer": "steward TBD (AStA/IO)",
+  "locale_set": ["en", "de", "ar"],
+  "fallback_to_national": true,
+  "city_overlay": [
+    {
+      "id": "anmeldung",
+      "title": {
+        "en": "House Registration (Anmeldung)",
+        "de": "Anmeldung",
+        "ar": "التسجيل السكاني (Anmeldung)"
+      },
+      "intent": "guide",
+      "city_only": true,
+      "estimated_days_window": [0, 14],
+      "steps": [
+        {
+          "order": 1,
+          "text_en": "Book an appointment at a Berlin Bürgeramt via service.berlin.de. Appointments fill up quickly — check regularly.",
+          "text_de": "Termin bei einem Berliner Bürgeramt über service.berlin.de vereinbaren. Termine sind schnell ausgebucht — regelmäßig prüfen.",
+          "text_ar": "احجز موعدًا في مكتب Bürgeramt في برلين عبر service.berlin.de. المواعيد تُحجز بسرعة — تحقق بانتظام.",
+          "what_to_bring": ["Passport", "Rental contract", "Landlord confirmation (Wohnungsgeberbestätigung)"],
+          "german_phrase": "Ich möchte mich anmelden.",
+          "deadline_days": 14,
+          "depends_on": []
+        },
+        {
+          "order": 2,
+          "text_en": "Bring passport, rental contract, and your landlord confirmation (Wohnungsgeberbestätigung).",
+          "text_de": "Pass, Mietvertrag und Wohnungsgeberbestätigung mitbringen.",
+          "text_ar": "أحضر جواز السفر، وعقد الإيجار، وتأكيد المؤجر (Wohnungsgeberbestätigung).",
+          "what_to_bring": [],
+          "german_phrase": "",
+          "deadline_days": null,
+          "depends_on": []
+        },
+        {
+          "order": 3,
+          "text_en": "Submit the form — you will receive the Anmeldebestätigung same-day in most cases.",
+          "text_de": "Formular abgeben — Bescheinigung oft am selben Tag.",
+          "text_ar": "قدم النموذج — ستتلقى شهادة التسجيل في نفس اليوم في معظم الحالات.",
+          "what_to_bring": [],
+          "german_phrase": "",
+          "deadline_days": null,
+          "depends_on": []
+        }
+      ],
+      "disclaimer": {
+        "en": "Guidance only. Berlin Bürgeramt appointment availability varies. Confirm with service.berlin.de.",
+        "de": "Nur Hinweise. Die Terminverfügbarkeit beim Berliner Bürgeramt variiert. Bestätigen Sie mit service.berlin.de.",
+        "ar": "إرشادات فقط. توفر مواعيد مكتب Bürgeramt في برلين يختلف. تأكد من service.berlin.de."
+      },
+      "sources": [
+        {
+          "url": "https://service.berlin.de/terminvereinbarung/",
+          "last_verified": "2026-10-28",
+          "status": "unverified"
+        }
+      ],
+      "status": "unverified"
+    }
+  ]
+}
