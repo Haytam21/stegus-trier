@@ -22,5 +22,5 @@
 - [x] Code review pass — complete
 
 ## Phase 5: Report
-- [x] Open PR into main with gh pr create — complete (PR #1, do NOT merge, main untouched)
+- [x] Open PR into main with gh pr create — complete (PR #1, merged into main on 2026-10-28, commit 5b5dc3d)
 - [x] Final report — complete
