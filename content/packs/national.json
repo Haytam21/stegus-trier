@@ -296,6 +296,7 @@
           "depends_on": ["enrollment"]
         }
       ],
+      "depends_on": ["enrollment"],
       "disclaimer": {
         "en": "Exemption rules vary. Confirm with your university and health insurer before deciding.",
         "de": "Befreiungsregeln variieren. Bestätigen Sie mit Ihrer Universität und Krankenversicherung vor der Entscheidung.",

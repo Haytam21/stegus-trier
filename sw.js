@@ -3,6 +3,8 @@ const CACHE_NAME = 'stegus-v1';
 const SHELL_URLs = [
   './',
   './index.html',
+  './privacy-policy.html',
+  './impressum.html',
   './styles/main.css',
   './manifest.webmanifest',
   './icons/icon-192.svg',
