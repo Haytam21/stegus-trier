@@ -12,26 +12,15 @@
 - [x] Commit and push to feature/germany-wide — complete
 
 ## Phase 3: Build
-- [x] 3A. Fix audit items (W1–W5, RTL, manifest icons, service worker) — complete
-- [x] 3B. Refactor data model: national baseline + city overlay — complete
-- [x] 3C. Add Berlin pack (fully verified) — complete
-- [x] 3D. Add Munich + Hamburg (national baseline + "no local info yet") — complete
-- [x] 3E. Add new blocks 1–10 (scam warnings → Rundfunkbeitrag) — complete
-- [x] 3F. City detection (opt-in geolocation + manual picker) — complete
-- [x] 3G. User profile (EU/non-EU, arrival date, deadline countdowns) — complete
-- [x] 3H. Dependency order + locked steps — complete
-- [x] 3I. .ics export + report an error — complete
-- [x] 3J. Legal pages (draft privacy policy + Impressum) — complete
-- [x] 3K. Translation cleanup (remove placeholders, fix Arabic) — complete
-- [x] 3L. Tests for new schema fields, city detection, fallback, dependency order, profile logic, .ics export — complete (67 tests, all passing)
+- [x] 3A–3L. All build tasks complete — complete (all 67 unit tests + 10 E2E tests passing)
 
 ## Phase 4: Verify
-- [x] Tests — complete (67 unit tests)
+- [x] Tests — complete (67 unit tests, all passing)
 - [x] Playwright E2E at phone size — complete (10 tests, all passing)
-- [ ] Security/privacy check
-- [ ] Accessibility audit
-- [ ] Code review pass
+- [x] Security/privacy check — complete (no .env/keys, no analytics, no third-party calls, geolocation on-device, safe DOM rendering)
+- [x] Accessibility audit — complete (skip-to-content link, focus-visible styles, improved contrast)
+- [x] Code review pass — complete
 
 ## Phase 5: Report
-- [ ] Open PR into main with gh pr create (do NOT merge)
-- [ ] Final report with branch name, PR link, git log, main untouched confirmation
+- [x] Open PR into main with gh pr create — complete (PR #1, do NOT merge, main untouched)
+- [x] Final report — complete
