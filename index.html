@@ -213,7 +213,7 @@
           btn.disabled = locked;
           if (locked) {
             btn.textContent = 'Locked — complete dependencies first';
-            const depNames = b.depends_on.map(d => {
+            const depNames = (b.depends_on || []).map(d => {
               const dep = sorted.find(x => x.id === d);
               return dep ? (dep.title[lang] || dep.title.en) : d;
             });
