@@ -42,9 +42,9 @@ test.describe('Stegus arrival hub — phone size', () => {
     await expect(page.locator('html')).toHaveAttribute('lang', 'de');
   });
 
-  test('footer has legal page links', async ({ page }) => {
-    await expect(page.locator('a[href="./privacy-policy.html"]')).toBeVisible();
-    await expect(page.locator('a[href="./impressum.html"]')).toBeVisible();
+  test('footer does not link to draft legal pages', async ({ page }) => {
+    await expect(page.locator('a[href="./privacy-policy.html"]')).not.toBeVisible();
+    await expect(page.locator('a[href="./impressum.html"]')).not.toBeVisible();
   });
 
   test('export deadlines button exists', async ({ page }) => {
