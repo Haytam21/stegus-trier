@@ -3,108 +3,508 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0f172a">
+  <meta name="theme-color" content="#1e3a5f">
   <title>Stegus — Arrival hub</title>
   <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles/main.css">
 </head>
 <body>
   <a href="#app" class="skip-link">Skip to content</a>
 
-  <header class="app-header">
-    <div class="header-content">
-      <h1>Stegus <span class="brand-mark">Arrival hub</span></h1>
-      <p class="tagline">Your checklist for arriving in Germany as an international student</p>
-      <div class="disclaimer-banner disclaimer" role="alert">
-        <svg class="icon icon-sm" aria-hidden="true" viewBox="0 0 24 24">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-        </svg>
-        Guidance only — not legal or official advice. Confirm every step with your office.
+  <header>
+    <div class="header-inner">
+      <div class="header-top">
+        <div class="brand">
+          <h1>Stegus</h1>
+          <p class="tagline">Arrival hub for international students in Germany</p>
+        </div>
+
+        <div class="header-controls">
+          <div class="city-chip">
+            <label class="city-label">Your city</label>
+            <select id="city">
+              <option value="trier">Trier</option>
+              <option value="berlin">Berlin</option>
+              <option value="munich">Munich</option>
+              <option value="hamburg">Hamburg</option>
+            </select>
+            <button type="button" id="geo-btn">Use my location</button>
+          </div>
+          <span id="city-status" class="city-status"></span>
+
+          <label style="display:flex;flex-direction:column;gap:2px;">
+            <span style="font-size:12px;font-weight:600;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.05em;">Language</span>
+            <select id="lang">
+              <option value="en">English</option>
+              <option value="de">Deutsch</option>
+              <option value="ar">العربية (machine-translated, under review)</option>
+            </select>
+            <span class="coming-soon">More languages coming soon</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="profile-row">
+        <label style="display:flex;flex-direction:column;gap:2px;">
+          <span style="font-size:12px;font-weight:600;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.05em;">Your citizenship</span>
+          <select id="eu-status">
+            <option value="eu">EU/EEA citizen</option>
+            <option value="non-eu">Non-EU citizen</option>
+          </select>
+        </label>
+
+        <label style="display:flex;flex-direction:column;gap:2px;">
+          <span style="font-size:12px;font-weight:600;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.05em;">Arrival date</span>
+          <input type="date" id="arrival-date">
+        </label>
+      </div>
+
+      <div class="disclaimer">
+        Guidance only — not legal or official advice. Confirm every step with your local office.
       </div>
     </div>
   </header>
 
-  <div class="controls container">
-    <div class="control-group">
-      <label for="city" class="control-label">City</label>
-      <div class="control-field">
-        <select id="city" class="control-select">
-          <option value="trier">Trier</option>
-          <option value="berlin">Berlin</option>
-          <option value="munich">Munich</option>
-          <option value="hamburg">Hamburg</option>
-        </select>
-        <button type="button" id="geo-btn" class="control-btn geo-btn" title="Use my location" aria-label="Use my location">
-          <svg class="icon icon-sm" aria-hidden="true" viewBox="0 0 24 24">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-1.353 3-3m0 0c0-1.657-1.343 3-3-3m0 0a9 9 0 019-9m0 0c0 1.657-1.343 3-3 3"/>
-          </svg>
-          <span>Use my location</span>
-        </button>
-      </div>
-      <span id="city-status" class="control-hint"></span>
+  <main>
+    <div id="app">
+      <!-- Cards rendered here by JS -->
     </div>
+  </main>
 
-    <div class="control-group">
-      <label for="lang" class="control-label">Language</label>
-      <div class="control-field">
-        <select id="lang" class="control-select">
-          <option value="en">English</option>
-          <option value="de">Deutsch</option>
-          <option value="ar">العربية (machine-translated, under review)</option>
-        </select>
-      </div>
-      <span class="coming-soon">More languages coming soon</span>
-    </div>
-
-    <div class="control-group">
-      <label for="eu-status" class="control-label">I am a</label>
-      <div class="control-field">
-        <select id="eu-status" class="control-select">
-          <option value="eu">EU/EEA citizen</option>
-          <option value="non-eu">Non-EU citizen</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <label for="arrival-date" class="control-label">Arrival date</label>
-      <div class="control-field">
-        <input type="date" id="arrival-date" class="control-select">
-      </div>
-    </div>
-  </div>
-
-  <div class="actions container">
-    <a href="#" id="ics-export" class="action-btn">
-      <svg class="icon icon-sm" aria-hidden="true" viewBox="0 0 24 24">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-      </svg>
-      Export deadlines (.ics)
+  <nav class="bottom-nav">
+    <a href="#" class="nav-item active" aria-current="page">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3"></path></svg>
+      <span>Home</span>
     </a>
-    <a href="#" id="report-error" class="action-btn destructive">
-      <svg class="icon icon-sm" aria-hidden="true" viewBox="0 0 24 24">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-      </svg>
-      Report an error
+    <a href="#" class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+      <span>Checklist</span>
     </a>
-  </div>
+    <a href="#" id="ics-export" class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+      <span>Export deadlines</span>
+    </a>
+    <a href="#" id="report-error" class="nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+      <span>Report an error</span>
+    </a>
+  </nav>
 
-  <main id="app" class="checklist"></main>
-
-  <footer class="app-footer">
-    <div class="footer-links">
-      <span>Privacy policy (draft — disabled until placeholders filled)</span>
-      <span>Impressum (draft — disabled until placeholders filled)</span>
+  <div class="bottom-sheet" id="bottom-sheet">
+    <div class="bottom-sheet-handle"></div>
+    <div class="bottom-sheet-content">
+      <h2 class="bottom-sheet-title" id="sheet-title"></h2>
+      <div id="sheet-content"></div>
     </div>
-    <span style="float:right">Stegus — arrival hub for international students in Germany</span>
-  </footer>
+    <button class="bottom-sheet-close" id="sheet-close">Close</button>
+  </div>
 
   <script type="module">
-    import { init } from './src/app.js';
-    init();
+    import { key, loadProgress, saveProgress } from './src/progress.js';
+    import {
+      CITIES, haversine, nearestCity, mergePacks, filterByProfile,
+      sortByDependency, isLocked, formatDeadline
+    } from './src/data-model.js';
+    import { escapeHtml, generateIcs, downloadIcs } from './src/ics-export.js';
+
+    function setDirAndLang(lang) {
+      const html = document.documentElement;
+      html.lang = lang;
+      html.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    }
+
+    function saveCity(cityId) {
+      localStorage.setItem(`stegus:city:${cityId}`, cityId);
+    }
+
+    function loadCity() {
+      return localStorage.getItem('stegus:city:selected') || 'trier';
+    }
+
+    function loadProfile() {
+      const eu = localStorage.getItem('stegus:profile:eu') || 'eu';
+      const arrival = localStorage.getItem('stegus:profile:arrival') || '';
+      return { eu, arrival };
+    }
+
+    function saveProfile(eu, arrival) {
+      localStorage.setItem('stegus:profile:eu', eu);
+      localStorage.setItem('stegus:profile:arrival', arrival);
+    }
+
+    // ---- Bottom sheet ----
+    const bottomSheet = document.getElementById('bottom-sheet');
+    const sheetTitle = document.getElementById('sheet-title');
+    const sheetContent = document.getElementById('sheet-content');
+    const sheetClose = document.getElementById('sheet-close');
+
+    function openBottomSheet(title, htmlContent) {
+      sheetTitle.textContent = title;
+      sheetContent.innerHTML = htmlContent;
+      bottomSheet.classList.add('open');
+    }
+
+    function closeBottomSheet() {
+      bottomSheet.classList.remove('open');
+    }
+
+    sheetClose.addEventListener('click', closeBottomSheet);
+    bottomSheet.addEventListener('click', (e) => {
+      if (e.target === bottomSheet) closeBottomSheet();
+    });
+
+    // ---- Pack loading & rendering ----
+    async function loadPack(cityId, lang, profile) {
+      const root = document.getElementById('app');
+      root.innerHTML = '';
+
+      // Show stale-data notice if pack reviewed_on > 6 months old
+      try {
+        const natRes = await fetch('./content/packs/national.json');
+        const national = await natRes.json();
+        const reviewed = new Date(national.reviewed_on);
+        const sixMonthsAgo = new Date();
+        sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+        if (reviewed < sixMonthsAgo) {
+          const notice = document.createElement('div');
+          notice.className = 'stale-notice';
+          notice.innerHTML = `<strong>Possibly outdated:</strong> This information was last verified on ${national.reviewed_on} and may have changed. Please confirm with your local office.`;
+          root.appendChild(notice);
+        }
+      } catch (e) {
+        // ignore stale-check failure
+      }
+
+      try {
+        const natRes = await fetch('./content/packs/national.json');
+        if (!natRes.ok) throw new Error('National pack not found: ' + natRes.status);
+        const national = await natRes.json();
+
+        let overlay;
+        try {
+          const ovRes = await fetch(`./content/packs/${cityId}.json`);
+          if (!ovRes.ok) throw new Error('City overlay not found');
+          overlay = await ovRes.json();
+        } catch (e) {
+          overlay = { city_overlay: [] };
+        }
+
+        const merged = mergePacks(national, overlay);
+        const filtered = filterByProfile(merged, profile.eu === 'eu');
+        const sorted = sortByDependency(filtered);
+
+        // Update city status
+        const cityInfo = CITIES.find(c => c.id === cityId);
+        const statusEl = document.getElementById('city-status');
+        if (cityInfo) {
+          if (cityInfo.status === 'verified') {
+            statusEl.textContent = `${cityInfo.name} — local info available`;
+            statusEl.style.color = '#15803d';
+          } else {
+            statusEl.textContent = `${cityInfo.name} — national baseline only (no local info yet)`;
+            statusEl.style.color = '#d97706';
+          }
+        }
+
+        // Show "no local info" notice for cities without overlays
+        if (overlay.city_overlay.length === 0 && cityInfo && cityInfo.status !== 'verified') {
+          const notice = document.createElement('div');
+          notice.className = 'disclaimer disclaimer--error';
+          notice.textContent = `No verified local info for ${cityInfo.name} yet. Showing national baseline only.`;
+          root.appendChild(notice);
+        }
+
+        const progress = loadProgress(national.pack_id, sorted.map(b => b.id));
+        const now = new Date();
+
+        // Render hero
+        const hero = document.createElement('section');
+        hero.className = 'hero';
+        hero.innerHTML = `
+          <h2>Your arrival checklist</h2>
+          <p>Everything you need to settle in <span class="hero-city">${escapeHtml(cityInfo ? cityInfo.name : cityId)}</span></p>
+        `;
+        root.appendChild(hero);
+
+        sorted.forEach((b, index) => {
+          const locked = isLocked(b, progress);
+          const card = document.createElement('article');
+          card.className = `card${locked ? ' locked' : ''}`;
+
+          const title = (b.title && typeof b.title === 'object')
+            ? (b.title[lang] || b.title.en)
+            : b.title;
+          const textField = `text_${lang}`;
+          const disclaimerField = `disclaimer_${lang}`;
+          const disclaimer = b[disclaimerField] || b.disclaimer_en;
+          const isDone = progress[b.id] === 'done';
+
+          const statusLabel = locked ? 'Locked' : (isDone ? 'Done' : 'Todo');
+
+          card.style.animationDelay = `${index * 40}ms`;
+
+          const h2 = document.createElement('h2');
+          h2.className = 'card-title';
+          h2.textContent = title;
+          card.appendChild(h2);
+
+          // Step list
+          const ul = document.createElement('ul');
+          ul.className = 'card-steps';
+          b.steps.forEach(s => {
+            const li = document.createElement('li');
+            if (isDone) li.classList.add('done');
+
+            let stepText = s[textField] || s.text_en || '';
+            const deadline = formatDeadline(profile.arrival, s.deadline_days);
+            if (deadline) {
+              const dl = document.createElement('div');
+              dl.className = `step-deadline${deadline.startsWith('Overdue') ? ' overdue' : ''}`;
+              dl.textContent = deadline;
+              li.appendChild(dl);
+            }
+
+            const textDiv = document.createElement('div');
+            textDiv.className = 'step-text';
+            textDiv.textContent = stepText;
+            li.appendChild(textDiv);
+
+            if (s.what_to_bring && s.what_to_bring.length > 0) {
+              const bring = document.createElement('div');
+              bring.className = 'step-bring';
+              bring.innerHTML = `<strong>Bring:</strong> ${s.what_to_bring.join(', ')}`;
+              li.appendChild(bring);
+            }
+
+            if (s.german_phrase) {
+              const phrase = document.createElement('div');
+              phrase.className = 'step-phrase';
+              phrase.textContent = `Say: “${escapeHtml(s.german_phrase)}”`;
+              li.appendChild(phrase);
+            }
+
+            ul.appendChild(li);
+          });
+          card.appendChild(ul);
+
+          if (disclaimer) {
+            const p = document.createElement('p');
+            p.className = 'card-disclaimer';
+            p.textContent = disclaimer;
+            card.appendChild(p);
+          }
+
+          // Action button
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.dataset.code = b.id;
+          btn.dataset.state = isDone ? 'done' : 'not_done';
+          btn.disabled = locked;
+          btn.className = `action-btn${isDone ? ' done' : ''}${locked ? ' locked' : ''}`;
+          if (locked) {
+            btn.textContent = 'Locked — complete dependencies first';
+            const depNames = b.depends_on.map(d => {
+              const dep = sorted.find(x => x.id === d);
+              return dep ? (dep.title[lang] || dep.title.en) : d;
+            });
+            btn.title = 'Complete first: ' + depNames.join(', ');
+          } else {
+            btn.textContent = isDone ? 'Mark undone' : 'Mark done';
+          }
+
+          // Bottom sheet on card tap
+          card.addEventListener('click', (e) => {
+            if (e.target === btn || e.target.closest('.action-btn')) return;
+            const stepsHtml = b.steps.map(s => {
+              const deadline = formatDeadline(profile.arrival, s.deadline_days);
+              const textField = `text_${lang}`;
+              const stepText = s[textField] || s.text_en || '';
+              return `
+                <div class="bottom-sheet-step">
+                  <div style="font-weight:600;color:var(--text-primary);margin-bottom:4px;">${escapeHtml(stepText)}</div>
+                  ${deadline ? `<div style="font-size:12px;color:var(--text-secondary);">${deadline}</div>` : ''}
+                  ${s.what_to_bring && s.what_to_bring.length > 0 ? `<div style="font-size:13px;color:var(--text-secondary);margin-top:4px;"><strong>Bring:</strong> ${s.what_to_bring.join(', ')}</div>` : ''}
+                  ${s.german_phrase ? `<div style="font-size:13px;font-weight:600;color:var(--brand-primary);margin-top:4px;">Say: “${escapeHtml(s.german_phrase)}”</div>` : ''}
+                </div>
+              `;
+            }).join('');
+            openBottomSheet(title, stepsHtml);
+          });
+
+          card.appendChild(btn);
+          root.appendChild(card);
+        });
+
+      } catch (err) {
+        root.innerHTML = `
+          <div class="disclaimer disclaimer--error" style="padding:var(--space-4);text-align:center;">
+            ⚠️ Failed to load checklist: ${escapeHtml(err.message)}.
+          </div>
+          <button type="button" id="retry-btn" class="action-btn" style="margin:0 auto;display:block;">Retry</button>
+        `;
+        document.getElementById('retry-btn').addEventListener('click', () => {
+          const city = document.getElementById('city').value;
+          const lang = document.getElementById('lang').value;
+          loadPack(city, lang, profile);
+        });
+      }
+    }
+
+    // ---- UI wiring ----
+    const citySel = document.querySelector('#city');
+    const langSel = document.querySelector('#lang');
+    const euSel = document.querySelector('#eu-status');
+    const arrivalInput = document.querySelector('#arrival-date');
+    const geoBtn = document.querySelector('#geo-btn');
+
+    // Load saved state
+    const savedCity = loadCity();
+    const profile = loadProfile();
+    citySel.value = savedCity;
+    euSel.value = profile.eu;
+    if (profile.arrival) arrivalInput.value = profile.arrival;
+    setDirAndLang(langSel.value);
+
+    // Initial load
+    loadPack(savedCity, langSel.value, profile);
+
+    // City change
+    citySel.addEventListener('change', () => {
+      saveCity(citySel.value);
+      loadPack(citySel.value, langSel.value, profile);
+    });
+
+    // Geo button
+    geoBtn.addEventListener('click', () => {
+      if (!navigator.geolocation) {
+        document.getElementById('city-status').textContent = 'Geolocation not supported';
+        return;
+      }
+      geoBtn.textContent = 'Locating…';
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          const nearest = nearestCity(pos.coords.latitude, pos.coords.longitude);
+          citySel.value = nearest.id;
+          saveCity(nearest.id);
+          loadPack(nearest.id, langSel.value, profile);
+          geoBtn.textContent = 'Use my location';
+        },
+        () => {
+          geoBtn.textContent = 'Use my location';
+          document.getElementById('city-status').textContent = 'Location access denied — use manual picker';
+        }
+      );
+    });
+
+    // Language change
+    langSel.addEventListener('change', () => {
+      setDirAndLang(langSel.value);
+      loadPack(citySel.value, langSel.value, profile);
+    });
+
+    // Profile change
+    euSel.addEventListener('change', () => {
+      profile.eu = euSel.value;
+      saveProfile(profile.eu, profile.arrival);
+      loadPack(citySel.value, langSel.value, profile);
+    });
+
+    // Arrival date change
+    arrivalInput.addEventListener('change', () => {
+      profile.arrival = arrivalInput.value;
+      saveProfile(profile.eu, profile.arrival);
+      loadPack(citySel.value, langSel.value, profile);
+    });
+
+    // ---- .ics export ----
+    document.getElementById('ics-export').addEventListener('click', (e) => {
+      e.preventDefault();
+      if (!profile.arrival) {
+        alert('Please set your arrival date first to export deadlines.');
+        return;
+      }
+      exportIcs(citySel.value, langSel.value, profile);
+    });
+
+    function exportIcs(cityId, lang, profile) {
+      const cityInfo = CITIES.find(c => c.id === cityId);
+      const events = [];
+      const progress = loadProgress('national-2026q4-v0', []);
+
+      fetch('./content/packs/national.json')
+        .then(res => res.json())
+        .then(national => {
+          return fetch(`./content/packs/${cityId}.json`)
+            .then(res => res.ok ? res.json() : { city_overlay: [] })
+            .then(overlay => ({ national, overlay }));
+        })
+        .then(({ national, overlay }) => {
+          const merged = mergePacks(national, overlay);
+          const filtered = filterByProfile(merged, profile.eu === 'eu');
+          const sorted = sortByDependency(filtered);
+
+          sorted.forEach(b => {
+            b.steps.forEach(s => {
+              if (!s.deadline_days) return;
+              const arrival = new Date(profile.arrival);
+              if (!arrival || isNaN(arrival.getTime())) return;
+              const deadline = new Date(arrival);
+              deadline.setDate(arrival.getDate() + s.deadline_days);
+              const title = (b.title && typeof b.title === 'object')
+                ? (b.title[lang] || b.title.en)
+                : b.title;
+              const textField = `text_${lang}`;
+              const stepText = s[textField] || s.text_en || '';
+              events.push({
+                start: deadline,
+                summary: `Stegus: ${title} — ${stepText.slice(0, 60)}`,
+                description: `City: ${cityInfo ? cityInfo.name : cityId}\nBlock: ${title}\nStep: ${stepText}\nSource: Stegus arrival hub`,
+              });
+            });
+          });
+
+          if (events.length === 0) {
+            alert('No deadlines to export. Set an arrival date first.');
+            return;
+          }
+
+          const ics = generateIcs(events);
+          downloadIcs(ics, `stegus-deadlines-${cityId}.ics`);
+        })
+        .catch(err => {
+          alert('Failed to export deadlines: ' + escapeHtml(err.message));
+        });
+    }
+
+    // ---- Report an error ----
+    function reportError(cityId, lang, profile) {
+      const subject = encodeURIComponent('[Stegus] Error report: ' + (cityId || 'unknown'));
+      const body = encodeURIComponent(
+        'Stegus error report\n' +
+        '====================\n' +
+        'City: ' + cityId + '\n' +
+        'Language: ' + lang + '\n' +
+        'Profile: ' + profile.eu + ', arrival: ' + profile.arrival + '\n' +
+        'Time: ' + new Date().toISOString() + '\n\n' +
+        'Please describe the incorrect or missing information:\n\n' +
+        '---\n' +
+        'No personal data is collected by Stegus. Only include details you want to share.\n'
+      );
+      const mailto = `mailto:?subject=${subject}&body=${body}`;
+      window.location.href = mailto;
+    }
+
+    document.getElementById('report-error').addEventListener('click', (e) => {
+      e.preventDefault();
+      reportError(citySel.value, langSel.value, profile);
+    });
+
+    // Register service worker for offline-first PWA
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js').catch((err) => {
+        // Silent fail — SW is optional enhancement
+      });
+    }
   </script>
 </body>
 </html>

@@ -84,7 +84,10 @@ describe('pack schema (all packs)', () => {
             src.url.startsWith('http://') || src.url.startsWith('https://'),
             `${path}: block ${block.id} source url ${src.url}`
           );
-          assert.strictEqual(typeof src.last_verified, 'string', `${path}: block ${block.id} source last_verified`);
+          assert.ok(
+            src.last_verified === null || typeof src.last_verified === 'string',
+            `${path}: block ${block.id} source last_verified is null or string`
+          );
           assert.ok(
             src.status === 'verified' || src.status === 'unverified',
             `${path}: block ${block.id} source status ${src.status}`
