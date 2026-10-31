@@ -1,25 +1,30 @@
 /* ==========================================================================
    Stegus — Arrival hub
    Checklist UI for international students in Germany
-   House rules: one ground, one ink, one accent. No gradients, no shadows
-   on things at rest, no thin rules, no glass, no emoji, flat buttons.
+   Design system: Accessible & Ethical (ui-ux-pro-max)
+   Colors: Navy primary (#0F172A), Blue accent (#0369A1), Atkinson Hyperlegible typeface
+   Rules: no gradients, no shadows at rest, no thin rules, no glass, no emoji,
+   one typeface, flat buttons, headlines ≤2 lines, 44×44 touch targets
    ========================================================================== */
 
 :root {
-  /* Colours — one ground, one ink, one accent */
+  /* Colours — design system palette */
   --ground: #ffffff;
   --surface: #f8fafc;
-  --surface-strong: #f1f5f9;
+  --surface-strong: #e8ecf1;
   --ink: #0f172a;
   --ink-secondary: #475569;
-  --accent: #0f6f8e;
-  --accent-hover: #0d5a75;
-  --accent-surface: #f0f9fd;
+  --accent: #0369a1;
+  --accent-hover: #025a8c;
+  --accent-surface: #e0f2fe;
   --success: #059669;
   --success-surface: #f0fdfa;
-  --muted: #64748b;
+  --muted: #e8ecf1;
+  --muted-foreground: #475569;
   --border: #e2e8f0;
-  --focus-ring: #0f6f8e;
+  --destructive: #dc2626;
+  --destructive-surface: #fef2f2;
+  --focus-ring: #0f172a;
 
   /* Spacing — 4px rhythm */
   --space-1: 0.25rem;
@@ -43,14 +48,18 @@
   --transition-fast: 150ms ease;
   --transition-normal: 250ms ease;
 
-  /* Typography — one typeface */
-  --font: 'Source Sans 3', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Typography — one typeface, Atkinson Hyperlegible */
+  --font: 'Atkinson Hyperlegible', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* Touch target */
   --touch-target: 44px;
 
   /* Layout */
   --max-width: 480px;
+
+  /* Motion — stagger for card entrance */
+  --stagger-duration: 350ms;
+  --stagger-ease: back.out(1.4);
 }
 
 /* ==========================================================================
@@ -116,7 +125,7 @@ a:focus-visible {
 }
 
 /* ==========================================================================
-   Layout — equal outer margins, sections separated by tone steps
+   Layout — sections separated by tone steps
    ========================================================================== */
 
 .container {
@@ -125,7 +134,7 @@ a:focus-visible {
   padding: var(--space-4);
 }
 
-/* Header — accent color field at top, big bold headline */
+/* Header — hero section with accent band and illustration */
 .app-header {
   padding: var(--space-12) var(--space-4) var(--space-16);
   text-align: center;
@@ -139,7 +148,7 @@ a:focus-visible {
   inset-block-start: 0;
   inset-inline-start: 0;
   width: 100%;
-  height: 6px;
+  height: 8px;
   background: var(--accent);
 }
 
@@ -156,7 +165,7 @@ a:focus-visible {
 .app-header h1 {
   margin: 0;
   font-family: var(--font);
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 700;
   letter-spacing: -0.04em;
   color: var(--ink);
@@ -166,27 +175,18 @@ a:focus-visible {
 
 .brand-mark {
   font-weight: 400;
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   color: var(--accent);
 }
 
-/* Supporting statement — plain text, full ink, not grey */
+/* Supporting statement */
 .tagline {
   margin: 0;
   font-size: 1.25rem;
   color: var(--ink-secondary);
-  line-height: 1.5;
+  line-height: 1.6;
   max-width: 48ch;
   text-align: center;
-}
-
-/* Header illustration — SVG graphic below header */
-.header-illustration {
-  margin-top: var(--space-8);
-  width: 100%;
-  max-width: 320px;
-  display: block;
-  margin-inline: auto;
 }
 
 /* Disclaimer banner — flat surface, icon + text, no border */
@@ -201,6 +201,7 @@ a:focus-visible {
   font-size: 0.875rem;
   line-height: 1.5;
   margin-top: var(--space-2);
+  max-width: 100%;
 }
 
 .disclaimer-banner .icon {
@@ -208,22 +209,32 @@ a:focus-visible {
   margin-top: 0.1em;
 }
 
+/* Header illustration — SVG graphic below header */
+.header-illustration {
+  margin-top: var(--space-10);
+  width: 100%;
+  max-width: 360px;
+  display: block;
+  margin-inline: auto;
+}
+
 /* ==========================================================================
-   Controls
+   Controls — card-like container with clear grouping
    ========================================================================== */
 
 .controls {
   background: var(--surface);
-  border-radius: var(--radius-lg);
-  padding: var(--space-6);
-  margin-bottom: var(--space-8);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  margin-bottom: var(--space-10);
+  border: 1px solid var(--border);
 }
 
 .control-group {
   display: flex;
   flex-direction: column;
   gap: var(--space-1);
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-4);
 }
 
 .control-group:last-child {
@@ -235,7 +246,7 @@ a:focus-visible {
   font-weight: 600;
   color: var(--ink-secondary);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
 }
 
 .control-field {
@@ -266,7 +277,7 @@ a:focus-visible {
 
 .control-select:focus {
   border-color: var(--focus-ring);
-  box-shadow: 0 0 0 3px rgba(15, 111, 142, 0.15);
+  box-shadow: 0 0 0 3px rgba(3, 105, 161, 0.15);
   outline: none;
 }
 
@@ -291,8 +302,8 @@ a:focus-visible {
   font-size: 0.8125rem;
   font-weight: 600;
   color: var(--accent);
-  background: rgba(15, 111, 142, 0.08);
-  border: 1px solid rgba(15, 111, 142, 0.2);
+  background: var(--accent-surface);
+  border: 1px solid var(--accent);
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: all var(--transition-fast);
@@ -303,8 +314,9 @@ a:focus-visible {
 }
 
 .geo-btn:hover {
-  background: rgba(15, 111, 142, 0.15);
-  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent-hover);
 }
 
 .geo-btn:focus-visible {
@@ -324,19 +336,27 @@ a:focus-visible {
   font-weight: 600;
 }
 
+.coming-soon {
+  font-family: var(--font);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink-secondary);
+}
+
 /* ==========================================================================
-   Actions
+   Actions — primary CTA emphasis
    ========================================================================== */
 
 .actions {
   display: flex;
   gap: var(--space-3);
-  padding: var(--space-4);
+  padding: var(--space-5);
   flex-wrap: wrap;
   justify-content: center;
   background: var(--surface);
-  border-radius: var(--radius-lg);
-  margin-bottom: var(--space-8);
+  border-radius: var(--radius-xl);
+  margin-bottom: var(--space-10);
+  border: 1px solid var(--border);
 }
 
 .action-btn {
@@ -373,15 +393,15 @@ a:focus-visible {
 }
 
 .action-btn.destructive {
-  background: var(--muted);
+  background: var(--destructive);
 }
 
 .action-btn.destructive:hover:not(:disabled) {
-  background: #94a3b8;
+  background: #b91c1c;
 }
 
 /* ==========================================================================
-   Checklist
+   Checklist — cards with stagger entrance
    ========================================================================== */
 
 #app {
@@ -394,25 +414,17 @@ a:focus-visible {
   gap: var(--space-6);
 }
 
-/* Card — surface separated by tone step, no border, no shadow on rest */
+/* Card — surface separated by tone step, accent left border, no shadow on rest */
 .card {
   background: var(--ground);
-  border-radius: var(--radius-lg);
-  padding: var(--space-6);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
   position: relative;
   overflow: hidden;
   border: 1px solid var(--border);
   transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  inset-block-start: 0;
-  inset-inline-start: 0;
-  width: 6px;
-  height: 100%;
-  background: var(--accent);
+  animation: cardEnter var(--stagger-duration) var(--stagger-ease) both;
+  opacity: 0;
 }
 
 .card:hover {
@@ -424,6 +436,7 @@ a:focus-visible {
 .card.locked {
   background: var(--surface-strong);
   border-color: var(--border);
+  opacity: 0.85;
 }
 
 .card.locked:hover {
@@ -432,15 +445,16 @@ a:focus-visible {
   transform: none;
 }
 
-.card.locked::before {
-  background: var(--muted);
+.card.done {
+  background: var(--success-surface);
+  border-color: var(--success);
 }
 
 .card-header {
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-6);
 }
 
 .card h2 {
@@ -451,6 +465,18 @@ a:focus-visible {
   color: var(--ink);
   letter-spacing: -0.02em;
   line-height: 1.2;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.card h2::before {
+  content: '';
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--accent);
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .card-status {
@@ -473,12 +499,12 @@ a:focus-visible {
 }
 
 .status-locked {
-  color: var(--muted);
+  color: var(--muted-foreground);
   background: var(--surface-strong);
 }
 
 .card ul {
-  margin: 0 0 var(--space-5) 0;
+  margin: 0 0 var(--space-6) 0;
   padding-inline-start: var(--space-4);
   list-style: none;
 }
@@ -507,8 +533,8 @@ a:focus-visible {
   position: absolute;
   inset-block-start: 0.35em;
   inset-inline-start: 0;
-  width: 0.5rem;
-  height: 0.5rem;
+  width: 0.625rem;
+  height: 0.625rem;
   border-radius: 50%;
   background: var(--border);
 }
@@ -538,7 +564,7 @@ a:focus-visible {
 
 /* Card disclaimer */
 .card-disclaimer {
-  margin-top: var(--space-5);
+  margin-top: var(--space-6);
   font-size: 0.8125rem;
   color: var(--ink-secondary);
   font-style: italic;
@@ -561,7 +587,7 @@ a:focus-visible {
   text-align: start;
   min-height: var(--touch-target);
   transition: background var(--transition-fast), transform var(--transition-fast);
-  margin-top: var(--space-6);
+  margin-top: var(--space-8);
 }
 
 .card-btn:hover:not(:disabled) {
@@ -575,7 +601,7 @@ a:focus-visible {
 
 .card-btn:disabled {
   background: var(--surface-strong);
-  color: var(--muted);
+  color: var(--muted-foreground);
   cursor: not-allowed;
   box-shadow: none;
 }
@@ -585,25 +611,33 @@ a:focus-visible {
   outline-offset: 2px;
 }
 
+/* Card entrance stagger animation */
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ==========================================================================
    Coming soon
    ========================================================================== */
 
-.coming-soon {
-  font-family: var(--font);
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--ink-secondary);
-}
+/* (coming-soon defined above with controls) */
 
 /* ==========================================================================
    Footer
    ========================================================================== */
 
 .app-footer {
-  margin-top: var(--space-16);
-  padding: var(--space-12) var(--space-4);
+  margin-top: var(--space-20);
+  padding: var(--space-16) var(--space-4);
   border-block-start: 1px solid var(--border);
+  background: var(--surface);
   font-size: 0.75rem;
   color: var(--ink-secondary);
   text-align: center;
@@ -689,16 +723,16 @@ a:focus-visible {
 
 /* Progress indicator */
 .progress-indicator {
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-8);
 }
 
 .progress-bar {
   width: 100%;
-  height: 8px;
+  height: 10px;
   background: var(--surface-strong);
   border-radius: var(--radius-md);
   overflow: hidden;
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-3);
 }
 
 .progress-fill {
@@ -729,17 +763,19 @@ a:focus-visible {
   .controls {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
   }
 }
 
 @media (min-width: 768px) {
   .app-header h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
 
   .controls {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
   }
 
   .actions {
