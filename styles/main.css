@@ -1,6 +1,6 @@
 /* ==========================================================================
    Stegus — Arrival hub
-   Premium checklist UI for international students in Germany
+   Checklist UI for international students in Germany
    House rules: one ground, one ink, one accent. No gradients, no shadows
    on things at rest, no thin rules, no glass, no emoji, flat buttons.
    ========================================================================== */
@@ -14,6 +14,7 @@
   --ink-secondary: #475569;
   --accent: #0f6f8e;
   --accent-hover: #0d5a75;
+  --accent-surface: #f0f9fd;
   --success: #059669;
   --success-surface: #f0fdfa;
   --muted: #64748b;
@@ -31,10 +32,12 @@
   --space-10: 2.5rem;
   --space-12: 3rem;
   --space-16: 4rem;
+  --space-20: 5rem;
 
   /* Radius */
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
 
   /* Transitions — transform and opacity only */
   --transition-fast: 150ms ease;
@@ -122,25 +125,40 @@ a:focus-visible {
   padding: var(--space-4);
 }
 
+/* Header — accent color field at top, big bold headline */
 .app-header {
-  padding: var(--space-10) var(--space-4) var(--space-8);
+  padding: var(--space-12) var(--space-4) var(--space-16);
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.app-header::before {
+  content: '';
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  width: 100%;
+  height: 6px;
+  background: var(--accent);
 }
 
 .header-content {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  gap: var(--space-4);
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 /* Headline — two lines or fewer, large, tight tracking */
 .app-header h1 {
   margin: 0;
   font-family: var(--font);
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 700;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
   color: var(--ink);
   line-height: 1.1;
   max-width: 100%;
@@ -148,18 +166,27 @@ a:focus-visible {
 
 .brand-mark {
   font-weight: 400;
-  font-size: 1rem;
-  color: var(--ink-secondary);
+  font-size: 1.125rem;
+  color: var(--accent);
 }
 
 /* Supporting statement — plain text, full ink, not grey */
 .tagline {
   margin: 0;
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   color: var(--ink-secondary);
   line-height: 1.5;
-  max-width: 42ch;
+  max-width: 48ch;
   text-align: center;
+}
+
+/* Header illustration — SVG graphic below header */
+.header-illustration {
+  margin-top: var(--space-8);
+  width: 100%;
+  max-width: 320px;
+  display: block;
+  margin-inline: auto;
 }
 
 /* Disclaimer banner — flat surface, icon + text, no border */
@@ -307,6 +334,9 @@ a:focus-visible {
   padding: var(--space-4);
   flex-wrap: wrap;
   justify-content: center;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-8);
 }
 
 .action-btn {
@@ -316,7 +346,7 @@ a:focus-visible {
   gap: var(--space-2);
   padding: var(--space-3) var(--space-6);
   font-family: var(--font);
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #fff;
   background: var(--accent);
@@ -330,7 +360,7 @@ a:focus-visible {
 
 .action-btn:hover:not(:disabled) {
   background: var(--accent-hover);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 .action-btn:active:not(:disabled) {
@@ -371,6 +401,8 @@ a:focus-visible {
   padding: var(--space-6);
   position: relative;
   overflow: hidden;
+  border: 1px solid var(--border);
+  transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
 }
 
 .card::before {
@@ -378,17 +410,26 @@ a:focus-visible {
   position: absolute;
   inset-block-start: 0;
   inset-inline-start: 0;
-  width: 4px;
+  width: 6px;
   height: 100%;
   background: var(--accent);
 }
 
 .card:hover {
-  background: var(--surface);
+  border-color: var(--accent);
+  background: var(--accent-surface);
+  transform: translateY(-2px);
 }
 
 .card.locked {
   background: var(--surface-strong);
+  border-color: var(--border);
+}
+
+.card.locked:hover {
+  background: var(--surface-strong);
+  border-color: var(--border);
+  transform: none;
 }
 
 .card.locked::before {
@@ -399,16 +440,17 @@ a:focus-visible {
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-5);
 }
 
 .card h2 {
   margin: 0;
   font-family: var(--font);
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--ink);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
 }
 
 .card-status {
@@ -419,20 +461,24 @@ a:focus-visible {
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   margin-inline-start: auto;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-md);
 }
 
 .status-done {
   color: var(--success);
+  background: var(--success-surface);
 }
 
 .status-locked {
   color: var(--muted);
+  background: var(--surface-strong);
 }
 
 .card ul {
-  margin: 0 0 var(--space-4) 0;
+  margin: 0 0 var(--space-5) 0;
   padding-inline-start: var(--space-4);
   list-style: none;
 }
@@ -443,15 +489,32 @@ a:focus-visible {
 }
 
 .card li {
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-4);
   font-size: 0.9375rem;
   line-height: 1.6;
   color: var(--ink);
   padding-block: var(--space-2);
+  padding-inline-start: 1.5rem;
+  position: relative;
 }
 
 .card li:last-child {
   margin-bottom: 0;
+}
+
+.card li::before {
+  content: '';
+  position: absolute;
+  inset-block-start: 0.35em;
+  inset-inline-start: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--border);
+}
+
+.card li.done::before {
+  background: var(--success);
 }
 
 .bring,
@@ -470,22 +533,25 @@ a:focus-visible {
 
 .say {
   color: var(--accent);
+  background: var(--accent-surface);
 }
 
+/* Card disclaimer */
 .card-disclaimer {
-  margin-top: var(--space-4);
+  margin-top: var(--space-5);
   font-size: 0.8125rem;
   color: var(--ink-secondary);
   font-style: italic;
   padding-block-start: var(--space-3);
+  border-block-start: 1px solid var(--border);
 }
 
-/* Card action button — flat, full width */
+/* Card action button — flat, full width, more prominent */
 .card-btn {
   width: 100%;
-  padding: var(--space-3) var(--space-4);
+  padding: var(--space-4);
   font-family: var(--font);
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #fff;
   background: var(--accent);
@@ -495,12 +561,12 @@ a:focus-visible {
   text-align: start;
   min-height: var(--touch-target);
   transition: background var(--transition-fast), transform var(--transition-fast);
-  margin-top: var(--space-4);
+  margin-top: var(--space-6);
 }
 
 .card-btn:hover:not(:disabled) {
   background: var(--accent-hover);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 .card-btn:active:not(:disabled) {
@@ -606,7 +672,7 @@ a:focus-visible {
   margin-top: var(--space-2);
   padding: var(--space-3);
   font-family: var(--font);
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--accent);
   background: var(--surface);
@@ -619,6 +685,36 @@ a:focus-visible {
 .error-banner .retry-btn:hover {
   background: var(--surface-strong);
   border-color: var(--accent);
+}
+
+/* Progress indicator */
+.progress-indicator {
+  margin-bottom: var(--space-6);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--surface-strong);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: var(--space-2);
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: var(--radius-md);
+  transition: width var(--transition-normal);
+}
+
+.progress-text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-secondary);
+  text-align: right;
 }
 
 /* ==========================================================================

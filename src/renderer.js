@@ -104,7 +104,27 @@ export function renderCard(block, lang, progress, arrivalDate) {
 }
 
 export function renderChecklist(blocks, lang, progress, arrivalDate, root) {
+  const done = blocks.filter(b => progress[b.id] === 'done').length;
+  const pct = blocks.length ? Math.round((done / blocks.length) * 100) : 0;
+
+  const progressEl = document.createElement('div');
+  progressEl.className = 'progress-indicator';
+
+  const bar = document.createElement('div');
+  bar.className = 'progress-bar';
+  const fill = document.createElement('div');
+  fill.className = 'progress-fill';
+  fill.style.width = `${pct}%`;
+  bar.appendChild(fill);
+  progressEl.appendChild(bar);
+
+  const text = document.createElement('div');
+  text.className = 'progress-text';
+  text.textContent = `${pct}% complete (${done} of ${blocks.length})`;
+  progressEl.appendChild(text);
+
   root.innerHTML = '';
+  root.appendChild(progressEl);
   blocks.forEach(b => {
     root.appendChild(renderCard(b, lang, progress, arrivalDate));
   });
