@@ -1,29 +1,26 @@
 /* ==========================================================================
-   Stegus — Premium Arrival Hub
-   Dark navy + gold design system
+   Stegus — Arrival hub
+   Premium checklist UI for international students in Germany
+   House rules: one ground, one ink, one accent. No gradients, no shadows
+   on things at rest, no thin rules, no glass, no emoji, flat buttons.
    ========================================================================== */
-:root {
-  /* Colors */
-  --bg: #020617;
-  --bg-secondary: #0f172a;
-  --card: #ffffff;
-  --card-hover: #f8fafc;
-  --primary: #d97706;
-  --primary-hover: #b45309;
-  --primary-glow: rgba(217, 119, 6, 0.15);
-  --text: #020617;
-  --text-muted: #64748b;
-  --text-light: #94a3b8;
-  --border: #e2e8f0;
-  --border-hover: #94a3b8;
-  --success: #059669;
-  --success-bg: #ecfdf5;
-  --warning: #d97706;
-  --warning-bg: #fffbeb;
-  --destructive: #dc2626;
-  --ring: #d97706;
 
-  /* Spacing */
+:root {
+  /* Colours — one ground, one ink, one accent */
+  --ground: #ffffff;
+  --surface: #f8fafc;
+  --surface-strong: #f1f5f9;
+  --ink: #0f172a;
+  --ink-secondary: #475569;
+  --accent: #0f6f8e;
+  --accent-hover: #0d5a75;
+  --success: #059669;
+  --success-surface: #f0fdfa;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --focus-ring: #0f6f8e;
+
+  /* Spacing — 4px rhythm */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -32,52 +29,47 @@
   --space-6: 1.5rem;
   --space-8: 2rem;
   --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
 
   /* Radius */
   --radius-md: 0.5rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.25rem;
+  --radius-lg: 0.75rem;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-
-  /* Transitions */
+  /* Transitions — transform and opacity only */
   --transition-fast: 150ms ease;
   --transition-normal: 250ms ease;
-  --transition-spring: 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  /* Typography */
-  --font-heading: 'Lexend', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-body: 'Source Sans 3', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Typography — one typeface */
+  --font: 'Source Sans 3', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* Touch target */
   --touch-target: 44px;
 
-  --max-width-content: 480px;
+  /* Layout */
+  --max-width: 480px;
 }
 
 /* ==========================================================================
    Base
    ========================================================================== */
+
 * { box-sizing: border-box; }
 
 html {
-  font-family: var(--font-body);
+  font-family: var(--font);
   font-size: 16px;
   line-height: 1.5;
-  background: var(--bg);
-  color: var(--text);
+  background: var(--ground);
+  color: var(--ink);
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: var(--font);
   margin: 0;
   padding: 0;
-  color: var(--text);
-  background: var(--bg);
+  color: var(--ink);
+  background: var(--ground);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -85,7 +77,7 @@ body {
   position: absolute;
   top: -10000px;
   inset-inline-start: 0;
-  background: var(--primary);
+  background: var(--accent);
   color: #fff;
   padding: var(--space-2) var(--space-4);
   z-index: 1000;
@@ -111,93 +103,110 @@ body {
   border: 0;
 }
 
-/* Focus states */
+/* Focus states — visible ring on all interactive elements */
 button:focus-visible,
 select:focus-visible,
 input:focus-visible,
 a:focus-visible {
-  outline: 3px solid var(--ring);
+  outline: 3px solid var(--focus-ring);
   outline-offset: 2px;
 }
 
 /* ==========================================================================
-   Layout
+   Layout — equal outer margins, sections separated by tone steps
    ========================================================================== */
+
 .container {
-  max-width: var(--max-width-content);
+  max-width: var(--max-width);
   margin: 0 auto;
   padding: var(--space-4);
 }
 
 .app-header {
-  padding: var(--space-8) var(--space-4) var(--space-6);
-  position: relative;
+  padding: var(--space-10) var(--space-4) var(--space-8);
+  text-align: center;
 }
 
 .header-content {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
-  text-align: center;
+  align-items: center;
 }
 
+/* Headline — two lines or fewer, large, tight tracking */
 .app-header h1 {
   margin: 0;
-  font-family: var(--font-heading);
-  font-size: 2rem;
+  font-family: var(--font);
+  font-size: 2.5rem;
   font-weight: 700;
-  letter-spacing: -0.02em;
-  background: linear-gradient(135deg, #ffffff 0%, #fbbf24 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  line-height: 1.1;
+  max-width: 100%;
 }
 
 .brand-mark {
-  font-family: var(--font-body);
   font-weight: 400;
-  font-size: 0.875em;
-  color: var(--text-light);
+  font-size: 1rem;
+  color: var(--ink-secondary);
 }
 
-/* Disclaimer banner */
+/* Supporting statement — plain text, full ink, not grey */
+.tagline {
+  margin: 0;
+  font-size: 1.125rem;
+  color: var(--ink-secondary);
+  line-height: 1.5;
+  max-width: 42ch;
+  text-align: center;
+}
+
+/* Disclaimer banner — flat surface, icon + text, no border */
 .disclaimer-banner {
-  background: rgba(220, 38, 38, 0.08);
-  color: var(--destructive);
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  background: var(--surface-strong);
+  color: var(--ink-secondary);
   padding: var(--space-3) var(--space-4);
   border-radius: var(--radius-lg);
   font-size: 0.875rem;
-  border: 1px solid rgba(220, 38, 38, 0.2);
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  margin-bottom: var(--space-2);
+  line-height: 1.5;
+  margin-top: var(--space-2);
 }
 
-/* Controls section */
+.disclaimer-banner .icon {
+  flex-shrink: 0;
+  margin-top: 0.1em;
+}
+
+/* ==========================================================================
+   Controls
+   ========================================================================== */
+
 .controls {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
+  background: var(--surface);
+  border-radius: var(--radius-lg);
   padding: var(--space-6);
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-lg);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-8);
 }
 
 .control-group {
   display: flex;
   flex-direction: column;
   gap: var(--space-1);
+  margin-bottom: var(--space-3);
+}
+
+.control-group:last-child {
+  margin-bottom: 0;
 }
 
 .control-label {
-  font-family: var(--font-heading);
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--text-light);
+  color: var(--ink-secondary);
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -211,16 +220,16 @@ a:focus-visible {
 .control-select {
   width: 100%;
   padding: var(--space-3) var(--space-4);
-  font-family: var(--font-body);
+  font-family: var(--font);
   font-size: 1rem;
-  color: var(--text);
-  background: var(--card);
+  color: var(--ink);
+  background: var(--ground);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   appearance: none;
   cursor: pointer;
   min-height: var(--touch-target);
-  transition: all var(--transition-fast);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3e%3cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: inset-inline-end var(--space-4) center;
@@ -229,14 +238,14 @@ a:focus-visible {
 }
 
 .control-select:focus {
+  border-color: var(--focus-ring);
+  box-shadow: 0 0 0 3px rgba(15, 111, 142, 0.15);
   outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.15);
 }
 
 .control-select option {
-  background: var(--card);
-  color: var(--text);
+  background: var(--ground);
+  color: var(--ink);
 }
 
 [dir="rtl"] .control-select {
@@ -251,12 +260,12 @@ a:focus-visible {
   top: 50%;
   transform: translateY(-50%);
   padding: var(--space-2) var(--space-3);
-  font-family: var(--font-heading);
+  font-family: var(--font);
   font-size: 0.8125rem;
   font-weight: 600;
-  color: var(--primary);
-  background: rgba(217, 119, 6, 0.08);
-  border: 1px solid rgba(217, 119, 6, 0.3);
+  color: var(--accent);
+  background: rgba(15, 111, 142, 0.08);
+  border: 1px solid rgba(15, 111, 142, 0.2);
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: all var(--transition-fast);
@@ -267,13 +276,12 @@ a:focus-visible {
 }
 
 .geo-btn:hover {
-  background: rgba(217, 119, 6, 0.15);
-  border-color: var(--primary);
-  transform: translateY(-50%) scale(1.02);
+  background: rgba(15, 111, 142, 0.15);
+  border-color: var(--accent);
 }
 
 .geo-btn:focus-visible {
-  outline: 3px solid var(--ring);
+  outline: 3px solid var(--focus-ring);
   outline-offset: 2px;
 }
 
@@ -284,17 +292,21 @@ a:focus-visible {
 
 .control-hint {
   font-size: 0.75rem;
-  color: var(--text-muted);
+  color: var(--ink-secondary);
   margin-top: var(--space-1);
-  font-family: var(--font-heading);
+  font-weight: 600;
 }
 
-/* Actions */
+/* ==========================================================================
+   Actions
+   ========================================================================== */
+
 .actions {
   display: flex;
   gap: var(--space-3);
   padding: var(--space-4);
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .action-btn {
@@ -303,34 +315,22 @@ a:focus-visible {
   justify-content: center;
   gap: var(--space-2);
   padding: var(--space-3) var(--space-6);
-  font-family: var(--font-heading);
+  font-family: var(--font);
   font-size: 0.95rem;
   font-weight: 700;
   color: #fff;
-  background: var(--primary);
+  background: var(--accent);
   border: none;
   border-radius: var(--radius-lg);
   cursor: pointer;
   text-decoration: none;
   min-height: var(--touch-target);
-  transition: all var(--transition-spring);
-  box-shadow: 0 4px 6px -1px rgba(217, 119, 6, 0.3);
-}
-
-.action-btn.destructive {
-  background: var(--destructive);
-  box-shadow: 0 4px 6px -1px rgba(220, 38, 38, 0.3);
+  transition: background var(--transition-fast), transform var(--transition-fast);
 }
 
 .action-btn:hover:not(:disabled) {
-  background: var(--primary-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 12px -1px rgba(217, 119, 6, 0.4);
-}
-
-.action-btn.destructive:hover:not(:disabled) {
-  background: #b91c1c;
-  box-shadow: 0 8px 12px -1px rgba(220, 38, 38, 0.4);
+  background: var(--accent-hover);
+  transform: translateY(-1px);
 }
 
 .action-btn:active:not(:disabled) {
@@ -338,13 +338,22 @@ a:focus-visible {
 }
 
 .action-btn:focus-visible {
-  outline: 3px solid var(--ring);
+  outline: 3px solid var(--focus-ring);
   outline-offset: 2px;
+}
+
+.action-btn.destructive {
+  background: var(--muted);
+}
+
+.action-btn.destructive:hover:not(:disabled) {
+  background: #94a3b8;
 }
 
 /* ==========================================================================
    Checklist
    ========================================================================== */
+
 #app {
   padding: var(--space-4);
 }
@@ -352,16 +361,14 @@ a:focus-visible {
 .checklist {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--space-6);
 }
 
+/* Card — surface separated by tone step, no border, no shadow on rest */
 .card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
+  background: var(--ground);
+  border-radius: var(--radius-lg);
   padding: var(--space-6);
-  box-shadow: var(--shadow-md);
-  transition: all var(--transition-spring);
   position: relative;
   overflow: hidden;
 }
@@ -373,34 +380,19 @@ a:focus-visible {
   inset-inline-start: 0;
   width: 4px;
   height: 100%;
-  background: var(--primary);
-  transition: all var(--transition-normal);
+  background: var(--accent);
 }
 
 .card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-xl);
-  border-color: var(--border-hover);
+  background: var(--surface);
 }
 
 .card.locked {
-  opacity: 0.7;
-  border-style: dashed;
-  border-color: rgba(100, 116, 139, 0.2);
-  pointer-events: none;
+  background: var(--surface-strong);
 }
 
 .card.locked::before {
-  background: var(--text-muted);
-}
-
-.card.done {
-  background: var(--success-bg);
-  border-color: rgba(5, 150, 105, 0.2);
-}
-
-.card.done::before {
-  background: var(--success);
+  background: var(--muted);
 }
 
 .card-header {
@@ -412,10 +404,10 @@ a:focus-visible {
 
 .card h2 {
   margin: 0;
-  font-family: var(--font-heading);
-  font-size: 1.125rem;
+  font-family: var(--font);
+  font-size: 1.25rem;
   font-weight: 700;
-  color: var(--text);
+  color: var(--ink);
   letter-spacing: -0.01em;
 }
 
@@ -423,7 +415,7 @@ a:focus-visible {
   display: inline-flex;
   align-items: center;
   gap: var(--space-1);
-  font-family: var(--font-heading);
+  font-family: var(--font);
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -436,7 +428,7 @@ a:focus-visible {
 }
 
 .status-locked {
-  color: var(--text-muted);
+  color: var(--muted);
 }
 
 .card ul {
@@ -454,66 +446,61 @@ a:focus-visible {
   margin-bottom: var(--space-3);
   font-size: 0.9375rem;
   line-height: 1.6;
-  color: var(--text);
+  color: var(--ink);
   padding-block: var(--space-2);
-  border-block-end: 1px solid rgba(100, 116, 139, 0.1);
 }
 
 .card li:last-child {
-  border-block-end: none;
+  margin-bottom: 0;
 }
 
 .bring,
 .say {
   margin-top: var(--space-3);
   padding: var(--space-2) var(--space-3);
-  background: rgba(100, 116, 139, 0.05);
+  background: var(--surface);
   border-radius: var(--radius-md);
   font-size: 0.875rem;
-  font-family: var(--font-heading);
+  font-weight: 600;
 }
 
 .bring {
-  color: var(--text-muted);
+  color: var(--ink-secondary);
 }
 
 .say {
-  color: var(--primary);
-  font-weight: 700;
+  color: var(--accent);
 }
 
 .card-disclaimer {
   margin-top: var(--space-4);
   font-size: 0.8125rem;
-  color: var(--text-muted);
+  color: var(--ink-secondary);
   font-style: italic;
-  border-block-start: 1px solid rgba(100, 116, 139, 0.1);
   padding-block-start: var(--space-3);
 }
 
-/* Card action button */
+/* Card action button — flat, full width */
 .card-btn {
   width: 100%;
   padding: var(--space-3) var(--space-4);
-  font-family: var(--font-heading);
+  font-family: var(--font);
   font-size: 0.95rem;
   font-weight: 700;
   color: #fff;
-  background: var(--primary);
+  background: var(--accent);
   border: none;
   border-radius: var(--radius-lg);
   cursor: pointer;
   text-align: start;
   min-height: var(--touch-target);
-  transition: all var(--transition-spring);
+  transition: background var(--transition-fast), transform var(--transition-fast);
   margin-top: var(--space-4);
-  box-shadow: 0 4px 6px -1px rgba(217, 119, 6, 0.3);
 }
 
 .card-btn:hover:not(:disabled) {
-  background: var(--primary-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 12px -1px rgba(217, 119, 6, 0.4);
+  background: var(--accent-hover);
+  transform: translateY(-1px);
 }
 
 .card-btn:active:not(:disabled) {
@@ -521,32 +508,38 @@ a:focus-visible {
 }
 
 .card-btn:disabled {
-  background: rgba(100, 116, 139, 0.15);
-  color: var(--text-muted);
+  background: var(--surface-strong);
+  color: var(--muted);
   cursor: not-allowed;
   box-shadow: none;
 }
 
 .card-btn:focus-visible {
-  outline: 3px solid var(--ring);
+  outline: 3px solid var(--focus-ring);
   outline-offset: 2px;
 }
 
-/* Coming soon */
+/* ==========================================================================
+   Coming soon
+   ========================================================================== */
+
 .coming-soon {
-  font-family: var(--font-heading);
+  font-family: var(--font);
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--text-muted);
+  color: var(--ink-secondary);
 }
 
-/* Footer */
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
 .app-footer {
-  margin-top: var(--space-10);
-  padding: var(--space-8) var(--space-4);
-  border-block-start: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: var(--space-16);
+  padding: var(--space-12) var(--space-4);
+  border-block-start: 1px solid var(--border);
   font-size: 0.75rem;
-  color: var(--text-muted);
+  color: var(--ink-secondary);
   text-align: center;
 }
 
@@ -559,10 +552,13 @@ a:focus-visible {
 }
 
 .footer-links span {
-  color: var(--text-muted);
+  color: var(--ink-secondary);
 }
 
-/* Icons */
+/* ==========================================================================
+   Icons
+   ========================================================================== */
+
 .icon {
   width: 1rem;
   height: 1rem;
@@ -575,23 +571,28 @@ a:focus-visible {
   height: 0.875rem;
 }
 
-/* No local info notice */
+/* ==========================================================================
+   No local info notice
+   ========================================================================== */
+
 .no-local-info {
-  background: var(--warning-bg);
-  border: 1px solid rgba(217, 119, 6, 0.3);
-  color: var(--warning);
+  background: var(--surface-strong);
+  color: var(--ink-secondary);
   padding: var(--space-3) var(--space-4);
   border-radius: var(--radius-md);
   font-size: 0.875rem;
-  font-family: var(--font-heading);
+  font-family: var(--font);
+  font-weight: 600;
   margin-top: var(--space-4);
 }
 
-/* Error state */
+/* ==========================================================================
+   Error state
+   ========================================================================== */
+
 .error-banner {
-  background: rgba(220, 38, 38, 0.08);
-  border: 1px solid rgba(220, 38, 38, 0.2);
-  color: var(--destructive);
+  background: var(--surface-strong);
+  color: var(--ink);
   padding: var(--space-4);
   border-radius: var(--radius-lg);
   margin: var(--space-4);
@@ -604,24 +605,26 @@ a:focus-visible {
   width: 100%;
   margin-top: var(--space-2);
   padding: var(--space-3);
-  font-family: var(--font-heading);
+  font-family: var(--font);
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--primary);
-  background: rgba(217, 119, 6, 0.08);
-  border: 1px solid rgba(217, 119, 6, 0.3);
+  color: var(--accent);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: background var(--transition-fast), border-color var(--transition-fast);
 }
 
 .error-banner .retry-btn:hover {
-  background: rgba(217, 119, 6, 0.15);
+  background: var(--surface-strong);
+  border-color: var(--accent);
 }
 
 /* ==========================================================================
    Responsive
    ========================================================================== */
+
 @media (min-width: 481px) {
   .container {
     padding: var(--space-6);
@@ -635,7 +638,7 @@ a:focus-visible {
 
 @media (min-width: 768px) {
   .app-header h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
 
   .controls {
@@ -645,5 +648,16 @@ a:focus-visible {
 
   .actions {
     justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
