@@ -215,9 +215,9 @@
       "steps": [
         {
           "order": 1,
-          "text_en": "The Deutschlandticket costs €49/month and is valid on all regional public transport across Germany. Your university may also offer a Semesterticket included in your fees.",
-          "text_de": "Das Deutschlandticket kostet 49 € pro Monat und gilt im gesamten regionalen Nahverkehr in Deutschland. Ihre Universität bietet möglicherweise auch ein Semesterticket, das in Ihren Gebühren enthalten ist.",
-          "text_ar": "تكلفة تذكرة ألمانيا 49 يورو شهريًا وصالحة في جميع وسائل النقل الإقليمي في ألمانيا. قد توفر جامعتك أيضًا تذكرة فصل دراسي مشمولة في رسومك.",
+          "text_en": "The Deutschlandticket costs €63/month and is valid on all regional public transport across Germany. Your university may also offer a Semesterticket included in your fees.",
+          "text_de": "Das Deutschlandticket kostet 63 € pro Monat und gilt im gesamten regionalen Nahverkehr in Deutschland. Ihre Universität bietet möglicherweise auch ein Semesterticket, das in Ihren Gebühren enthalten ist.",
+          "text_ar": "تكلفة تذكرة ألمانيا 63 يورو شهريًا وصالحة في جميع وسائل النقل الإقليمي في ألمانيا. قد توفر جامعتك أيضًا تذكرة فصل دراسي مشمولة في رسومك.",
           "what_to_bring": ["Student ID", "University enrollment proof"],
           "german_phrase": "Wo bekomme ich das Semesterticket?",
           "deadline_days": null,
@@ -225,9 +225,9 @@
         }
       ],
       "disclaimer": {
-        "en": "Deutschlandticket is €49/month (national price). Semesterticket terms vary by university and state.",
-        "de": "Deutschlandticket kostet 49 € pro Monat (nationaler Preis). Semesterticket-Bedingungen variieren je nach Universität und Bundesland.",
-        "ar": "تبلغ تكلفة تذكرة ألمانيا 49 يورو شهريًا (السعر الوطني). شروط تذكرة الفصل الدراسي تختلف حسب الجامعة والولاية."
+        "en": "Deutschlandticket is €63/month (national price). Semesterticket terms vary by university and state.",
+        "de": "Deutschlandticket kostet 63 € pro Monat (nationaler Preis). Semesterticket-Bedingungen variieren je nach Universität und Bundesland.",
+        "ar": "تبلغ تكلفة تذكرة ألمانيا 63 يورو شهريًا (السعر الوطني). شروط تذكرة الفصل الدراسي تختلف حسب الجامعة والولاية."
       },
       "sources": [
         {
