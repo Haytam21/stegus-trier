@@ -62,7 +62,7 @@ export function sortByDependency(blocks) {
     const next = [];
     let progressed = false;
     for (const block of remaining) {
-      const depsMet = block.depends_on.every(d => done.has(d));
+      const depsMet = (block.depends_on || []).every(d => done.has(d));
       if (depsMet) {
         result.push(block);
         done.add(block.id);
@@ -78,7 +78,7 @@ export function sortByDependency(blocks) {
 }
 
 export function isLocked(block, progress) {
-  return block.depends_on.some(d => progress[d] !== 'done');
+  return (block.depends_on || []).some(d => progress[d] !== 'done');
 }
 
 export function formatDeadline(arrivalDate, deadlineDays) {
