@@ -9,7 +9,12 @@ const SHELL_URLs = [
   './manifest.webmanifest',
   './icons/icon-192.svg',
   './icons/icon-512.svg',
-  './src/progress.js'
+  './src/progress.js',
+  './src/data-model.js',
+  './src/pack-loader.js',
+  './src/renderer.js',
+  './src/app.js',
+  './src/ics-export.js'
 ];
 
 // Cache shell on install
